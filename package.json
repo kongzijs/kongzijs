@@ -1,0 +1,21 @@
+{
+    "name": "fluence-monorepo",
+    "version": "0.1.0",
+    "private": true,
+    "engines": {
+        "node": ">=23.11.0",
+        "pnpm": ">=10.9.0"
+    },
+    "scripts": {
+        "dev": "pangu",
+        "build": "nx run-many -t build",
+        "lint": "nx run-many -t lint",
+        "test": "nx run-many -t test"
+    },
+    "devDependencies": {
+        "nx": "22.4.1",
+        "prettier": "^3.2.5",
+        "typescript": "^5.0.0",
+        "@systembug/pangu": "^0.0.12"
+    }
+}

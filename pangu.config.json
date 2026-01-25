@@ -1,0 +1,18 @@
+{
+    "projectName": "ac-grid",
+    "packageManager": "pnpm",
+    "demos": [
+        {
+            "name": "demo-react",
+            "value": "react",
+            "description": "React Demo",
+            "package": "@kongzijs/demo-react"
+        },
+        {
+            "name": "site",
+            "value": "site",
+            "description": "Site",
+            "package": "@fluence/web"
+        }
+    ]
+}

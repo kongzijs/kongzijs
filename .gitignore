@@ -1,0 +1,98 @@
+# 依赖目录
+node_modules
+.pnp
+.pnp.js
+
+# 构建输出
+dist
+build
+*.local
+
+# Next.js 构建输出
+.next
+.next/
+out/
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 编辑器目录和文件
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 测试覆盖率
+coverage
+*.lcov
+.nyc_output
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# 临时文件
+*.tmp
+*.temp
+.cache
+
+# ESLint 缓存
+.eslintcache
+
+# 操作系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# 包管理器锁文件（可选，根据团队偏好决定是否保留）
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Next.js 特定文件
+.vercel
+*.tsbuildinfo
+# next-env.d.ts 应该被提交（包含 Next.js 类型定义）
+
+# Supabase
+.supabase
+./supabase/.branches
+./supabase/.temp
+
+# Cursor MCP 配置
+# 注意：.cursor/mcp.json 使用环境变量引用 ${SUPABASE_MCP_ACCESS_TOKEN}
+# 配置文件本身是安全的，但为了防止意外提交硬编码的令牌，建议排除
+# 如果需要提交配置模板，创建 .cursor/mcp.json.example
+.cursor/mcp.json
+
+# dotenvx
+.env.keys
+.env.local
+.env.*.local
+
+
+
+.nx/cache
+.nx/workspace-data
