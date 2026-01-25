@@ -1,64 +1,97 @@
-# Kongzijs - FLF-Based Lesson Builder
+# Kongzijs - 基于 FLF 的课程构建器
 
-A modern, visual lesson builder system built on **FLF (Fluence Lesson Format)** - a standardized JSON protocol for creating rich-media educational content. This monorepo provides a complete toolkit for building, editing, and managing interactive lessons with flow-based node editing.
+> **FLF (Fluence Lesson Format)** 是一个标准化的 JSON 协议，用于定义富媒体课程。本项目是一个基于 FLF 格式的可视化课程构建器系统。
+
+一个完全基于 **FLF (Fluence Lesson Format)** 构建的现代化可视化课程构建器系统。FLF 是一个标准化的 JSON 协议，用于创建富媒体教育内容。本 monorepo 提供了完整的工具集，用于使用 FLF 格式和基于流程的节点编辑来构建、编辑和管理交互式课程。
 
 📍 **[查看开发路线图](./docs/ROADMAP.md)** - 了解项目进度和未来规划
 
-## 🎯 Project Overview
+## 🎯 什么是基于 FLF 的课程构建器？
 
-This project is an **FLF-based lesson builder** that enables educators and content creators to:
+**基于 FLF 的课程构建器** 是一个专门用于创建、编辑和管理 **FLF 格式课程**的可视化工具。FLF 是课程数据的唯一标准格式，所有课程内容都基于 FLF 协议定义。
 
-- **Visual Lesson Creation**: Build lessons using a drag-and-drop flow canvas (React Flow)
-- **FLF Format Support**: Create and edit lessons in the standardized FLF JSON format
-- **Asset Management**: Manage multimedia assets (videos, audio, images, quizzes) with protocol-based references
-- **Node-Based Editing**: Use Learn, Test, and Resource nodes to structure lesson content
-- **Type-Safe Development**: Full TypeScript support with comprehensive FLF type definitions
+### 核心原则
 
-## 📋 Table of Contents
+- **FLF 优先**: 所有课程数据都遵循 FLF 格式规范
+- **可视化编辑**: 通过可视化流程编辑器创建 FLF 课程
+- **协议化资产**: 使用协议化路径引用资产（`https://`, `local://`, `asset://`, `blob://`）
+- **基于节点的流程**: 使用 Learn、Test、Resource 节点构建课程流程
+- **类型安全**: 完整的 TypeScript 类型定义确保 FLF 数据正确性
 
-- [Core Packages](#-core-packages)
-- [FLF Format](#-flf-format)
-- [Tech Stack](#-tech-stack)
-- [Prerequisites](#-prerequisites)
-- [Installation](#-installation)
-- [Development](#-development)
-- [Project Structure](#-project-structure)
-- [Available Scripts](#-available-scripts)
-- [Documentation](#-documentation)
-- [Contributing](#-contributing)
+## 🚀 核心功能
 
-## 📦 Core Packages
+### FLF 格式支持
+
+- ✅ **FLF JSON 规范** (RFC 0017) - 完整的 FLF 格式实现
+- ✅ **FLF 验证** - 自动验证 FLF 清单是否符合规范
+- ✅ **FLF 转换器** - FLF 与 React Flow 双向转换
+- ✅ **协议解析** - 支持多种资产引用协议
+
+### 可视化课程构建器
+
+- 🎨 **流程画布** - 基于 React Flow 的可视化编辑器
+- 📝 **节点编辑** - Learn、Test、Resource 节点属性编辑
+- 📚 **资产库** - 多媒体资产管理和引用
+- 💾 **FLF 导入/导出** - 直接导入导出 FLF 格式文件
+
+### 课程播放器
+
+- ▶️ **FLF 播放** - 基于 FLF 清单的课程播放引擎
+- 🔄 **节点进度** - 状态机驱动的节点解锁逻辑
+- 📊 **进度追踪** - 学习进度追踪
+
+## 📋 目录
+
+- [核心包](#-核心包)
+- [FLF 格式](#-flf-格式)
+- [快速开始](#-快速开始)
+- [技术栈](#-技术栈)
+- [项目结构](#-项目结构)
+- [文档](#-文档)
+- [贡献指南](#-贡献指南)
+
+## 📦 核心包
 
 ### `@kongzijs/flf-core`
 
-The foundation package implementing the FLF specification (RFC 0017):
+**FLF 格式核心实现包** - 提供 FLF 规范的完整实现：
 
-- **Type Definitions**: Complete TypeScript types for FLF manifests
-- **Protocol Parsing**: Support for `https://`, `local://`, `asset://`, `blob://` protocols
-- **Validation**: FLF manifest validation against schema
-- **Transformers**: Bidirectional conversion between FLF and React Flow formats
-- **Examples**: Sample FLF data generators for testing
+- **类型定义**: 完整的 FLF TypeScript 类型定义
+- **协议解析**: 支持 `https://`, `local://`, `asset://`, `blob://` 协议解析
+- **验证**: FLF 清单验证，确保符合规范
+- **转换器**: FLF ↔ React Flow 双向转换
+- **示例**: FLF 示例数据生成器
 
 ```typescript
-import { FLFManifest, validateFLFManifest, FLFTransformer } from "@kongzijs/flf-core";
+import { 
+  FLFManifest, 
+  validateFLFManifest, 
+  FLFTransformer,
+  createExampleFLF 
+} from "@kongzijs/flf-core";
 
-// Create and validate FLF
+// 创建 FLF 清单
 const manifest: FLFManifest = createExampleFLF();
-const result = validateFLFManifest(manifest);
 
-// Transform to React Flow
+// 验证 FLF
+const result = validateFLFManifest(manifest);
+if (result.valid) {
+  console.log("FLF 有效！");
+}
+
+// 转换为 React Flow 格式
 const reactFlowData = FLFTransformer.toReactFlow(manifest);
 ```
 
 ### `@kongzijs/lesson-builder`
 
-Visual lesson builder component built with React Flow:
+**可视化课程构建器组件** - 基于 React Flow 的 FLF 课程编辑器：
 
-- **Flow Canvas**: Drag-and-drop node-based lesson editor
-- **Custom Nodes**: Learn, Test, Start, and End node types
-- **Property Panel**: Edit node properties (Markdown content, quiz references, rules)
-- **Asset Library**: Manage and reference multimedia assets
-- **FLF Integration**: Direct import/export of FLF manifests
+- **流程画布**: 拖拽式节点编辑器
+- **自定义节点**: Learn、Test、Start、End 节点类型
+- **属性面板**: 节点属性编辑（Markdown 内容、Quiz 引用、规则设置）
+- **资产库**: 多媒体资产管理
+- **FLF 集成**: 直接导入/导出 FLF 清单
 
 ```typescript
 import { LessonBuilder } from "@kongzijs/lesson-builder";
@@ -66,8 +99,8 @@ import { LessonBuilder } from "@kongzijs/lesson-builder";
 <LessonBuilder
   lessonId={123}
   initialManifest={flfManifest}
-  onSave={async (lessonId, manifest) => {
-    // Save FLF manifest
+  onSave={async (lessonId, manifest: FLFManifest) => {
+    // 保存 FLF 清单
     return { success: true, versionId: "v1.0" };
   }}
 />
@@ -75,18 +108,20 @@ import { LessonBuilder } from "@kongzijs/lesson-builder";
 
 ### `@kongzijs/ui`
 
-Shared UI component library built with Radix UI and Tailwind CSS.
+共享 UI 组件库，基于 Radix UI 和 Tailwind CSS 构建。
 
-## 🎓 FLF Format
+## 🎓 FLF 格式
 
-**FLF (Fluence Lesson Format)** is a standardized JSON protocol for defining rich-media lessons. Key features:
+**FLF (Fluence Lesson Format)** 是本项目的核心数据格式。所有课程内容都基于 FLF 格式定义。
 
-- **Self-Contained**: Single JSON file with all lesson configuration
-- **Protocol-Based Assets**: Unified addressing for remote URLs, local paths, and database IDs
-- **Flow-Based Structure**: Node-based lesson flow with Learn, Test, and Resource nodes
-- **Database-Friendly**: Designed for easy decomposition into relational database tables
+### FLF 核心特性
 
-### FLF Structure
+- **自包含**: 单个 JSON 文件包含所有课程配置
+- **协议化资产**: 统一的资产引用协议（`https://`, `local://`, `asset://`, `blob://`）
+- **流程化结构**: 基于节点的课程流程（Learn、Test、Resource 节点）
+- **数据库友好**: 设计用于轻松分解到关系型数据库表
+
+### FLF 结构示例
 
 ```json
 {
@@ -117,230 +152,234 @@ Shared UI component library built with Radix UI and Tailwind CSS.
 }
 ```
 
-**Learn More**: See [RFC 0017: FLF Specification](./docs/rfc/0017-flf-specification.md) for complete details.
+### 节点类型
 
-## 🛠 Tech Stack
+- **Learn Node**: 学习内容节点，包含 Markdown 和媒体资源
+- **Test Node**: 测试节点，引用 Quiz DSL 资产，支持通过分数和失败重定向
+- **Resource Node**: 资源节点，提供额外学习资源
 
-### Core
+### 资产协议
 
-- **TypeScript**: Full type safety
-- **React 18**: UI framework
-- **Nx**: Monorepo management
-- **pnpm**: Package manager with workspace support
-- **Vite**: Fast build tool
+- `https://` - 远程 URL
+- `local://` - 包内相对路径
+- `asset://` - 数据库 UUID
+- `blob://` - 前端临时上传（编辑状态）
 
-### Lesson Builder
+**了解更多**: 查看 [RFC 0017: FLF 规范](./docs/rfc/0017-flf-specification.md) 获取完整规范。
 
-- **React Flow (@xyflow/react)**: Flow-based visual editor
-- **FLF Core**: FLF format implementation
-- **Sonner**: Toast notifications
+## 🚀 快速开始
 
-### UI Components
+### 前置要求
 
-- **Radix UI**: Accessible component primitives
-- **Tailwind CSS**: Utility-first styling
-- **Lucide React**: Icon library
+- **Node.js**: 版本 >= 23.11.0
+- **pnpm**: 版本 >= 10.9.0
 
-### Development Tools
-
-- **ESLint**: Code linting
-- **Prettier**: Code formatting
-- **TypeScript**: Type checking
-
-## 📦 Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Node.js**: Version >= 23.11.0
-- **pnpm**: Version >= 10.9.0
-
-### Installing pnpm
+### 安装
 
 ```bash
-npm install -g pnpm
+# 克隆仓库
+git clone <repository-url>
+cd kongzijs
+
+# 安装依赖
+pnpm install
+
+# 启动开发服务器
+pnpm dev
 ```
 
-## 🚀 Installation
+### 使用 FLF Core
 
-1. **Clone the repository**
+```typescript
+import { 
+  FLFManifest, 
+  validateFLFManifest,
+  parseAssetSrc,
+  createExampleFLF 
+} from "@kongzijs/flf-core";
 
-   ```bash
-   git clone <repository-url>
-   cd kongzijs
-   ```
+// 创建示例 FLF
+const manifest = createExampleFLF();
 
-2. **Install dependencies**
+// 验证 FLF
+const result = validateFLFManifest(manifest);
 
-   ```bash
-   pnpm install
-   ```
+// 解析协议化路径
+const parsed = parseAssetSrc("asset://550e8400-e29b-41d4-a716-446655440000");
+```
 
-3. **Start development server**
+### 使用课程构建器
 
-   ```bash
-   pnpm dev
-   ```
+```typescript
+import { LessonBuilder } from "@kongzijs/lesson-builder";
+import { FLFManifest } from "@kongzijs/flf-core";
 
-   This will start all packages in development mode using Pangu (monorepo dev tool).
+function App() {
+  const handleSave = async (lessonId: number, manifest: FLFManifest) => {
+    // 保存 FLF 清单到后端
+    const response = await fetch(`/api/lessons/${lessonId}`, {
+      method: "PUT",
+      body: JSON.stringify(manifest),
+    });
+    return { success: true };
+  };
 
-## 💻 Development
+  return (
+    <LessonBuilder
+      lessonId={123}
+      initialManifest={initialFLF}
+      onSave={handleSave}
+    />
+  );
+}
+```
 
-### Monorepo Structure
+## 🛠 技术栈
 
-This is an Nx-based monorepo with the following structure:
+### 核心
+
+- **TypeScript**: 完整类型安全
+- **React 18**: UI 框架
+- **Nx**: Monorepo 管理
+- **pnpm**: 包管理器（workspace 支持）
+- **Vite**: 快速构建工具
+
+### FLF 课程构建器
+
+- **React Flow (@xyflow/react)**: 流程可视化编辑器
+- **FLF Core**: FLF 格式实现
+- **Sonner**: Toast 通知
+
+### UI 组件
+
+- **Radix UI**: 可访问的组件原语
+- **Tailwind CSS**: 工具优先的样式
+- **Lucide React**: 图标库
+
+## 📁 项目结构
 
 ```
 kongzijs/
 ├── packages/
-│   ├── flf-core/          # FLF format implementation
-│   ├── lesson-builder/  # Visual lesson builder UI
-│   └── ui/               # Shared UI components
-├── apps/
-│   └── demo-react/       # Demo application
-└── docs/                  # Documentation
-```
-
-### Development Commands
-
-```bash
-# Start all packages in dev mode
-pnpm dev
-
-# Build all packages
-pnpm build
-
-# Lint all packages
-pnpm lint
-
-# Run tests
-pnpm test
-```
-
-### Package-Specific Commands
-
-```bash
-# Work on a specific package
-cd packages/flf-core
-pnpm dev
-
-cd packages/lesson-builder
-pnpm dev
-```
-
-## 📁 Project Structure
-
-```
-kongzijs/
-├── packages/
-│   ├── flf-core/
+│   ├── flf-core/              # FLF 格式核心实现
 │   │   ├── src/
-│   │   │   ├── types.ts           # FLF type definitions
-│   │   │   ├── validator.ts       # FLF validation
-│   │   │   ├── asset-protocol.ts  # Protocol parsing
-│   │   │   ├── transformer.ts     # FLF ↔ React Flow
-│   │   │   └── examples.ts        # Sample data
+│   │   │   ├── types.ts       # FLF 类型定义
+│   │   │   ├── validator.ts   # FLF 验证
+│   │   │   ├── asset-protocol.ts  # 协议解析
+│   │   │   ├── transformer.ts  # FLF ↔ React Flow
+│   │   │   └── examples.ts   # 示例数据
 │   │   └── package.json
 │   │
-│   ├── lesson-builder/
+│   ├── lesson-builder/        # 可视化课程构建器
 │   │   ├── src/
-│   │   │   ├── LessonBuilder.tsx      # Main builder component
-│   │   │   ├── CustomNodes.tsx         # Flow node components
-│   │   │   └── NodePropertyPanel.tsx   # Property editor
+│   │   │   ├── LessonBuilder.tsx      # 主构建器组件
+│   │   │   ├── CustomNodes.tsx         # 流程节点组件
+│   │   │   └── NodePropertyPanel.tsx   # 属性编辑器
 │   │   └── package.json
 │   │
-│   └── ui/
-│       └── src/components/        # Shared UI components
+│   └── ui/                    # 共享 UI 组件
+│       └── src/components/
 │
 ├── apps/
-│   └── demo-react/               # Demo app using lesson builder
+│   └── demo-react/           # 演示应用
 │
 ├── docs/
-│   ├── rfc/                      # RFC documents
+│   ├── rfc/                   # RFC 文档
 │   │   ├── 0017-flf-specification.md
 │   │   ├── 0018-flf-ui-experience.md
 │   │   ├── 0020-flf-transformer.md
 │   │   └── ...
-│   └── ROADMAP.md                # Development roadmap
+│   └── ROADMAP.md            # 开发路线图
 │
-├── nx.json                        # Nx configuration
-├── pnpm-workspace.yaml           # pnpm workspace config
-└── package.json                  # Root package.json
+├── nx.json                    # Nx 配置
+├── pnpm-workspace.yaml       # pnpm workspace 配置
+└── package.json              # 根 package.json
 ```
 
-## 📜 Available Scripts
+## 📜 可用脚本
 
-| Script         | Description                    |
+| 脚本         | 描述                    |
 | -------------- | ------------------------------ |
-| `pnpm dev`     | Start all packages in dev mode |
-| `pnpm build`   | Build all packages             |
-| `pnpm lint`    | Lint all packages              |
-| `pnpm test`    | Run tests across packages      |
+| `pnpm dev`     | 启动所有包开发模式             |
+| `pnpm build`   | 构建所有包                     |
+| `pnpm lint`    | 检查所有包代码                 |
+| `pnpm test`    | 运行所有包测试                 |
 
-## 📚 Documentation
+## 📚 文档
 
-### RFC Documents
+### FLF 核心 RFC
 
-- **[RFC 0017: FLF Specification](./docs/rfc/0017-flf-specification.md)** - FLF JSON format specification
-- **[RFC 0018: Flow Canvas UI](./docs/rfc/0018-flf-ui-experience.md)** - React Flow-based editor design
-- **[RFC 0020: FLF Transformer](./docs/rfc/0020-flf-transformer.md)** - FLF ↔ React Flow conversion
-- **[RFC 0021: Lesson Player](./docs/rfc/0021-lesson-player.md)** - Student-facing lesson player
-- **[RFC 0022: Asset Library](./docs/rfc/0022-asset-library.md)** - Asset management system
-- **[RFC 0023: Node Property Editors](./docs/rfc/0023-node-property-editors.md)** - Node editing UI
+- **[RFC 0017: FLF JSON 规范](./docs/rfc/0017-flf-specification.md)** - FLF JSON 格式规范
+- **[RFC 0020: FLF 转换器引擎](./docs/rfc/0020-flf-transformer.md)** - FLF ↔ React Flow 转换
 
-### Guides
+### 课程构建器 RFC
 
-- **[Getting Started](./docs/guides/getting-started.md)** - Project setup and overview
-- **[Component Development](./docs/guides/component-development.md)** - Building new components
-- **[Development Roadmap](./docs/ROADMAP.md)** - Project roadmap and progress
+- **[RFC 0018: 流程画布 (React Flow)](./docs/rfc/0018-flf-ui-experience.md)** - 可视化流程编辑器设计
+- **[RFC 0022: 资产库](./docs/rfc/0022-asset-library.md)** - 资产管理系统
+- **[RFC 0023: 节点属性编辑器](./docs/rfc/0023-node-property-editors.md)** - 节点属性编辑 UI
 
-## 🤝 Contributing
+### 课程播放器 RFC
 
-1. **Create a feature branch**
+- **[RFC 0021: 课程播放器引擎](./docs/rfc/0021-lesson-player.md)** - 学生端课程播放系统
+
+### 打包管理
+
+- **[RFC 0019: 打包管理](./docs/rfc/0019-bundle-management.md)** - 物理包导出 (.flz)
+
+### 指南
+
+- **[快速开始](./docs/guides/getting-started.md)** - 项目设置和概览
+- **[组件开发](./docs/guides/component-development.md)** - 构建新组件
+- **[开发路线图](./docs/ROADMAP.md)** - 项目路线图和进度
+
+## 🤝 贡献指南
+
+1. **创建功能分支**
 
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
-2. **Make your changes**
-   - Follow the existing code style
-   - Run `pnpm lint` before committing
-   - Write clear commit messages
-   - Add tests for new features
+2. **进行更改**
+   - 遵循现有代码风格
+   - 提交前运行 `pnpm lint`
+   - 编写清晰的提交信息
+   - 为新功能添加测试
 
-3. **Test your changes**
-   - Ensure all packages build successfully
-   - Run tests: `pnpm test`
-   - Test in the demo app
+3. **测试更改**
+   - 确保所有包构建成功
+   - 运行测试: `pnpm test`
+   - 在演示应用中测试
 
-4. **Commit your changes**
+4. **提交更改**
 
    ```bash
    git commit -m "Add: your feature description"
    ```
 
-5. **Push and create a Pull Request**
+5. **推送并创建 Pull Request**
 
-### Code Style Guidelines
+### 代码风格指南
 
-- Use TypeScript for all new files
-- Follow functional programming principles where applicable
-- Use pure functions when possible
-- Keep components modular and focused
-- Add comments for complex logic
-- Use meaningful variable and function names
-- Define constants instead of using strings directly
+- 所有新文件使用 TypeScript
+- 尽可能使用函数式编程原则
+- 优先使用纯函数
+- 保持组件模块化和专注
+- 为复杂逻辑添加注释
+- 使用有意义的变量和函数名
+- 定义常量而不是直接使用字符串
 
-## 📄 License
+## 📄 许可证
 
-This project is private and proprietary.
+本项目为私有项目，仅供内部使用。
 
-## 🙏 Acknowledgments
+## 🙏 致谢
 
-- **FLF Format**: Designed for flexible, self-contained lesson definitions
-- **React Flow**: Visual flow editing capabilities
-- **Radix UI**: Accessible component primitives
-- **Nx**: Monorepo management and tooling
+- **FLF 格式**: 灵活、自包含的课程定义格式
+- **React Flow**: 可视化流程编辑能力
+- **Radix UI**: 可访问的组件原语
+- **Nx**: Monorepo 管理和工具
 
 ---
 
-**Note**: This project is focused on building a comprehensive FLF-based lesson builder system. All documentation and development efforts align with this core goal.
+**注意**: 本项目专注于构建完整的 **基于 FLF 的课程构建器** 系统。所有文档和开发工作都围绕这一核心目标展开。FLF 格式是本项目的唯一数据标准，所有课程内容都基于 FLF 协议定义。

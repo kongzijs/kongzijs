@@ -1,134 +1,134 @@
-# RFC (Request for Comments) Documents
+# RFC (请求评论) 文档
 
-This directory contains RFC documents that describe the design decisions, architecture, and implementation details for the Kongzijs FLF-based lesson builder project.
+本目录包含描述 Kongzijs 基于 FLF 的课程构建器项目的设计决策、架构和实现细节的 RFC 文档。
 
-## What is an RFC?
+## 什么是 RFC？
 
-An RFC (Request for Comments) is a document that describes:
+RFC (Request for Comments) 是一份描述以下内容的文档：
 
-- **Design decisions**: Why certain approaches were chosen
-- **Architecture**: How systems are structured
-- **Implementation details**: How features are built
-- **Best practices**: Guidelines for developers
-- **Future enhancements**: Potential improvements
+- **设计决策**: 为什么选择某些方法
+- **架构**: 系统如何构建
+- **实现细节**: 功能如何构建
+- **最佳实践**: 开发者指南
+- **未来增强**: 潜在的改进
 
-## 🎓 FLF Core RFCs
+## 🎓 FLF 核心 RFC
 
-The following RFCs define the core FLF (Fluence Lesson Format) lesson builder system:
+以下 RFC 定义了核心 FLF (Fluence Lesson Format) 课程构建器系统：
 
-### [RFC 0017: FLF JSON Specification](./0017-flf-specification.md)
+### [RFC 0017: FLF JSON 规范](./0017-flf-specification.md)
 
-**Status:** ✅ Implemented  
-**Created:** 2026-01-25
+**状态:** ✅ 已实施  
+**创建日期:** 2026-01-25
 
-Defines the FLF JSON data protocol - the foundation of the lesson builder system.
+定义 FLF JSON 数据协议 - 课程构建器系统的基础。
 
-**Key Topics:**
-- FLF JSON schema and structure
-- Protocol-based asset references (`https://`, `local://`, `asset://`, `blob://`)
-- Flow node types (Learn, Test, Resource)
-- Asset manifest system
+**关键主题:**
+- FLF JSON 模式和结构
+- 基于协议的资产引用（`https://`, `local://`, `asset://`, `blob://`）
+- 流程节点类型（Learn、Test、Resource）
+- 资产清单系统
 
-### [RFC 0020: FLF Transformer Engine](./0020-flf-transformer.md)
+### [RFC 0020: FLF 转换器引擎](./0020-flf-transformer.md)
 
-**Status:** 📋 Planned  
-**Created:** 2026-01-25
+**状态:** 📋 计划中  
+**创建日期:** 2026-01-25
 
-Documents the bidirectional transformation between FLF format and React Flow data structures.
+记录 FLF 格式与 React Flow 数据结构之间的双向转换。
 
-**Key Topics:**
-- FLF → React Flow conversion
-- React Flow → FLF conversion
-- Data mapping and validation
+**关键主题:**
+- FLF → React Flow 转换
+- React Flow → FLF 转换
+- 数据映射和验证
 
-### [RFC 0018: Flow Canvas (React Flow)](./0018-flf-ui-experience.md)
+### [RFC 0018: 流程画布 (React Flow)](./0018-flf-ui-experience.md)
 
-**Status:** 📋 Planned  
-**Created:** 2026-01-25
+**状态:** 📋 计划中  
+**创建日期:** 2026-01-25
 
-Describes the visual flow-based editor UI using React Flow.
+描述使用 React Flow 的可视化流程编辑器 UI。
 
-**Key Topics:**
-- React Flow integration
-- Custom node components
-- Flow editing interactions
+**关键主题:**
+- React Flow 集成
+- 自定义节点组件
+- 流程编辑交互
 
-### [RFC 0021: Lesson Player Engine](./0021-lesson-player.md)
+### [RFC 0021: 课程播放器引擎](./0021-lesson-player.md)
 
-**Status:** 📋 Planned  
-**Created:** 2026-01-25
+**状态:** 📋 计划中  
+**创建日期:** 2026-01-25
 
-Documents the student-facing lesson playback system.
+记录面向学生的课程播放系统。
 
-**Key Topics:**
-- FLF manifest interpretation
-- Node progression logic
-- Progress tracking
+**关键主题:**
+- FLF 清单解释
+- 节点进度逻辑
+- 进度追踪
 
-### [RFC 0022: Asset Library](./0022-asset-library.md)
+### [RFC 0022: 资产库](./0022-asset-library.md)
 
-**Status:** 📋 Planned  
-**Created:** 2026-01-25
+**状态:** 📋 计划中  
+**创建日期:** 2026-01-25
 
-Describes the asset management and library interface.
+描述资产管理和库界面。
 
-**Key Topics:**
-- Asset browsing and search
-- Drag-and-drop integration
-- Asset reference management
+**关键主题:**
+- 资产浏览和搜索
+- 拖拽集成
+- 资产引用管理
 
-### [RFC 0023: Node Property Editors](./0023-node-property-editors.md)
+### [RFC 0023: 节点属性编辑器](./0023-node-property-editors.md)
 
-**Status:** 📋 Planned  
-**Created:** 2026-01-25
+**状态:** 📋 计划中  
+**创建日期:** 2026-01-25
 
-Documents the node property editing interface.
+记录节点属性编辑界面。
 
-**Key Topics:**
-- Markdown editor for Learn nodes
-- Quiz configuration for Test nodes
-- Rule and settings editors
+**关键主题:**
+- Learn 节点的 Markdown 编辑器
+- Test 节点的 Quiz 配置
+- 规则和设置编辑器
 
-### [RFC 0019: Bundle Management](./0019-bundle-management.md)
+### [RFC 0019: 打包管理](./0019-bundle-management.md)
 
-**Status:** 📋 Planned  
-**Created:** 2026-01-25
+**状态:** 📋 计划中  
+**创建日期:** 2026-01-25
 
-Describes physical bundle export (.flz) and asset relocation.
+描述物理包导出 (.flz) 和资产重定位。
 
-**Key Topics:**
-- Bundle packaging
-- Asset path relocation
-- Export/import workflows
+**关键主题:**
+- 包打包
+- 资产路径重定位
+- 导出/导入工作流
 
-## RFC Format
+## RFC 格式
 
-Each RFC follows this structure:
+每个 RFC 遵循以下结构：
 
-1. **Header**: Status, author, dates
-2. **Summary**: Brief overview
-3. **Motivation**: Why this feature exists
-4. **Design Overview**: High-level architecture
-5. **Implementation Details**: Technical specifics
-6. **Usage Examples**: How to use the feature
-7. **Best Practices**: Guidelines for developers
-8. **Future Enhancements**: Potential improvements
-9. **References**: Related documentation
+1. **标题**: 状态、作者、日期
+2. **摘要**: 简要概述
+3. **动机**: 为什么需要此功能
+4. **设计概览**: 高级架构
+5. **实现细节**: 技术规范
+6. **使用示例**: 如何使用该功能
+7. **最佳实践**: 开发者指南
+8. **未来增强**: 潜在的改进
+9. **参考资料**: 相关文档
 
-## Contributing
+## 贡献
 
-When creating a new RFC:
+创建新 RFC 时：
 
-1. Use the format: `000X-feature-name.md`
-2. Follow the RFC template structure
-3. Include code examples
-4. Document both current state and future plans
-5. Update this README with the new RFC
+1. 使用格式: `000X-feature-name.md`
+2. 遵循 RFC 模板结构
+3. 包含代码示例
+4. 记录当前状态和未来计划
+5. 在本文档中更新新 RFC
 
-## Status Definitions
+## 状态定义
 
-- **Draft**: Under discussion, not yet implemented
-- **Planned**: Approved for implementation
-- **Implemented**: Fully implemented and in use
-- **Deprecated**: No longer recommended
-- **Superseded**: Replaced by another RFC
+- **草案**: 讨论中，尚未实施
+- **计划中**: 已批准实施
+- **已实施**: 已完全实施并投入使用
+- **已弃用**: 不再推荐
+- **已替代**: 被另一个 RFC 替换
