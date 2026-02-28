@@ -1,0 +1,137 @@
+.markdown-editor-wrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--flf-builder-color-border, #e2e8f0);
+    border-radius: var(--flf-builder-radius-md, 8px);
+    overflow: hidden;
+    background-color: var(--flf-builder-color-surface, #ffffff);
+    color: var(--flf-builder-color-text, #0f172a);
+}
+
+.markdown-editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    border-bottom: 1px solid var(--flf-builder-color-border, #e2e8f0);
+    background-color: var(--flf-builder-color-surface-raised, #f8fafc);
+}
+
+.markdown-editor-toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.markdown-editor-toolbar-divider {
+    width: 1px;
+    height: 20px;
+    background-color: var(--flf-builder-color-border, #e2e8f0);
+    margin: 0 4px;
+}
+
+.markdown-editor-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--flf-builder-radius-sm, 4px);
+    background: transparent;
+    border: none;
+    color: var(--flf-builder-color-text-muted, #64748b);
+    cursor: pointer;
+    transition: all var(--flf-builder-transition, 0.2s) ease;
+}
+
+.markdown-editor-btn:hover:not(:disabled) {
+    background-color: var(--flf-builder-color-border, #e2e8f0);
+    color: var(--flf-builder-color-text, #0f172a);
+}
+
+.markdown-editor-btn.is-active {
+    background-color: var(--flf-builder-color-primary, #3b82f6);
+    color: var(--flf-builder-color-primary-fg, #ffffff);
+}
+
+.markdown-editor-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.markdown-editor-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    cursor: text;
+}
+
+.markdown-editor-content .ProseMirror {
+    outline: none;
+    min-height: 100%;
+}
+
+.markdown-editor-content .ProseMirror > *:first-child {
+    margin-top: 0;
+}
+
+/* ProseMirror WYSIWYG Styles */
+.markdown-editor-content .ProseMirror p {
+    margin: 0.75em 0;
+    line-height: 1.6;
+}
+
+.markdown-editor-content .ProseMirror h1,
+.markdown-editor-content .ProseMirror h2,
+.markdown-editor-content .ProseMirror h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.markdown-editor-content .ProseMirror h1 { font-size: 1.875rem; }
+.markdown-editor-content .ProseMirror h2 { font-size: 1.5rem; }
+.markdown-editor-content .ProseMirror h3 { font-size: 1.25rem; }
+
+.markdown-editor-content .ProseMirror ul,
+.markdown-editor-content .ProseMirror ol {
+    padding-left: 1.5rem;
+    margin: 0.75em 0;
+}
+
+.markdown-editor-content .ProseMirror li > p {
+    margin: 0;
+}
+
+.markdown-editor-content .ProseMirror blockquote {
+    border-left: 3px solid var(--flf-builder-color-border, #cbd5e1);
+    margin-left: 0;
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--flf-builder-color-text-muted, #64748b);
+}
+
+.markdown-editor-content .ProseMirror code {
+    background-color: var(--flf-builder-color-surface-raised, #f1f5f9);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Plus Jakarta Sans', ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.875em;
+}
+
+.markdown-editor-content .ProseMirror pre {
+    background-color: var(--flf-builder-color-text, #0f172a);
+    color: var(--flf-builder-color-bg, #f8fafc);
+    padding: 1rem;
+    border-radius: var(--flf-builder-radius-md, 8px);
+    overflow-x: auto;
+    font-family: inherit;
+}
+
+.markdown-editor-content .ProseMirror pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}

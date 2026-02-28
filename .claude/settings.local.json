@@ -9,7 +9,10 @@
       "Bash(npm run dev:*)",
       "Bash(npx tsc:*)",
       "Bash(timeout 30 npm run dev:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(pnpm --filter @kongzijs/lesson-builder exec tsc --noEmit)",
+      "Bash(pnpm --filter @kongzijs/lesson-builder build:*)",
+      "Bash(pnpm --filter demo-react build:*)"
     ],
     "deny": [],
     "ask": []

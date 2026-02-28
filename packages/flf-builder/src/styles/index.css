@@ -1,0 +1,35 @@
+/**
+ * FLF Builder — Design System Entry Point
+ * RFC 0035: docs/rfc/completed/0035-flf-builder-design-system.md
+ *
+ * Import this file in your app:
+ *   import '@kongzijs/flf-builder/style.css';
+ *
+ * Then optionally override semantic tokens on .flf-builder to retheme:
+ *   .flf-builder {
+ *     --flf-builder-color-primary: #your-brand-color;
+ *     --flf-builder-font-sans: 'Your Font', sans-serif;
+ *   }
+ */
+ 
+ @import "../../../react/src/styles.css";
+ 
+ /* Google Fonts: Plus Jakarta Sans */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* Layer 1 + 2: Token definitions */
+@import './tokens.css';
+
+/* Scoped reset */
+@import './reset.css';
+
+/* Object layer */
+@import './objects/grid.css';
+
+/* Component styles */
+@import './components/layout.css';
+@import './components/sidebar.css';
+@import './components/chapter-header.css';
+@import './components/form.css';
+@import './components/perf-rules.css';
+@import './components/markdown-editor.css';

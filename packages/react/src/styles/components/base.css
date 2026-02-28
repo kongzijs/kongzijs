@@ -1,0 +1,1334 @@
+/* ============================================================
+   BUTTON (.borg-button)
+   ============================================================ */
+.borg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--borg-p-space-2);
+    white-space: nowrap;
+    border-radius: var(--borg-p-radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--borg-sys-transition);
+    cursor: pointer;
+    border: 1px solid transparent;
+    outline: none;
+    flex-shrink: 0;
+}
+
+.borg-button:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.borg-button:focus-visible {
+    border-color: var(--borg-sys-color-ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--borg-sys-color-ring), transparent 50%);
+}
+
+/* Variants */
+.borg-button--default {
+    background-color: var(--borg-sys-color-primary);
+    color: var(--borg-sys-color-primary-fg);
+}
+.borg-button--default:hover {
+    background-color: color-mix(in srgb, var(--borg-sys-color-primary), black 10%);
+}
+
+.borg-button--destructive {
+    background-color: var(--borg-sys-color-destructive);
+    color: var(--borg-sys-color-destructive-fg);
+}
+.borg-button--destructive:hover {
+    background-color: color-mix(in srgb, var(--borg-sys-color-destructive), black 10%);
+}
+
+.borg-button--outline {
+    border-color: color-mix(in srgb, var(--borg-sys-color-border), transparent 80%);
+    background-color: var(--borg-sys-color-card);
+    color: var(--borg-sys-color-fg);
+}
+.borg-button--outline:hover {
+    background-color: var(--borg-sys-color-accent);
+    color: var(--borg-sys-color-accent-fg);
+}
+
+.borg-button--secondary {
+    background-color: var(--borg-sys-color-secondary);
+    color: var(--borg-sys-color-secondary-fg);
+}
+.borg-button--secondary:hover {
+    background-color: color-mix(in srgb, var(--borg-sys-color-secondary), black 10%);
+}
+
+.borg-button--ghost {
+    background-color: transparent;
+    color: var(--borg-sys-color-fg);
+}
+.borg-button--ghost:hover {
+    background-color: var(--borg-sys-color-accent);
+    color: var(--borg-sys-color-accent-fg);
+}
+
+.borg-button--link {
+    background-color: transparent;
+    color: var(--borg-sys-color-primary);
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+}
+
+/* Sizes */
+.borg-button--size-default { height: 2.25rem; padding: 0.5rem 1rem; }
+.borg-button--size-sm      { height: 2rem; padding: 0 0.75rem; border-radius: var(--borg-p-radius-md); font-size: 0.75rem; }
+.borg-button--size-lg      { height: 2.5rem; padding: 0 1.5rem; border-radius: var(--borg-p-radius-md); }
+.borg-button--size-icon    { height: 2.25rem; width: 2.25rem; }
+
+/* ============================================================
+   CARD (.borg-card)
+   ============================================================ */
+.borg-card {
+    background-color: var(--borg-sys-color-card);
+    color: var(--borg-sys-color-card-fg);
+    border: 1px solid var(--borg-sys-color-border);
+    border-radius: var(--borg-p-radius-2xl);
+    box-shadow: var(--borg-sys-shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.borg-card__header {
+    padding: var(--borg-p-space-6);
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.borg-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1;
+    margin: 0;
+}
+
+.borg-card__description {
+    font-size: 0.875rem;
+    color: var(--borg-sys-color-muted-fg);
+    margin: 0;
+}
+
+.borg-card__content {
+    padding: 0 var(--borg-p-space-6) var(--borg-p-space-6);
+}
+
+.borg-card__footer {
+    padding: 0 var(--borg-p-space-6) var(--borg-p-space-6);
+    display: flex;
+    align-items: center;
+}
+
+/* ============================================================
+   BADGE (.borg-badge)
+   ============================================================ */
+.borg-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    padding: 0 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    height: 1.375rem;
+    transition: var(--borg-sys-transition);
+}
+
+.borg-badge--default {
+    background-color: var(--borg-sys-color-primary);
+    color: var(--borg-sys-color-primary-fg);
+}
+.borg-badge--secondary {
+    background-color: var(--borg-sys-color-secondary);
+    color: var(--borg-sys-color-secondary-fg);
+}
+.borg-badge--outline {
+    border-color: var(--borg-sys-color-border);
+    color: var(--borg-sys-color-fg);
+}
+.borg-badge--destructive {
+    background-color: var(--borg-sys-color-destructive);
+    color: var(--borg-sys-color-destructive-fg);
+}
+
+/* ============================================================
+   ICON BADGE (.borg-icon-badge)
+   ============================================================ */
+.borg-icon-badge {
+    border-radius: var(--borg-p-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--borg-sys-transition);
+    overflow: hidden;
+}
+.borg-icon-badge--default { background-color: var(--borg-sys-color-muted); color: var(--borg-sys-color-muted-fg); }
+.borg-icon-badge--primary { background-color: color-mix(in srgb, var(--borg-sys-color-primary), transparent 90%); color: var(--borg-sys-color-primary); }
+.borg-icon-badge--orange  { background-color: color-mix(in srgb, var(--borg-p-color-fluence-orange), transparent 90%); color: var(--borg-p-color-fluence-orange); }
+.borg-icon-badge--green   { background-color: rgba(34, 197, 94, 0.1); color: rgb(34, 197, 94); }
+
+.borg-icon-badge--size-sm      { padding: 0.25rem; }
+.borg-icon-badge--size-default { padding: 0.5rem; }
+.borg-icon-badge--size-lg      { padding: 0.75rem; }
+
+/* ============================================================
+   ACCORDION (.borg-accordion)
+   ============================================================ */
+.borg-accordion-item {
+    border-bottom: 1px solid var(--borg-sys-color-border);
+}
+.borg-accordion-item:last-child {
+    border-bottom: 0;
+}
+
+.borg-accordion-trigger {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: left;
+    transition: all 150ms;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: var(--borg-p-radius-md);
+}
+.borg-accordion-trigger:hover {
+    text-decoration: underline;
+}
+.borg-accordion-trigger:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--borg-sys-color-ring), transparent 50%);
+}
+.borg-accordion-trigger[data-state=open] svg {
+    transform: rotate(180deg);
+}
+
+.borg-accordion-content {
+    overflow: hidden;
+    font-size: 0.875rem;
+}
+.borg-accordion-content[data-state=closed] {
+    animation: borg-accordion-up 0.2s ease-out;
+}
+.borg-accordion-content[data-state=open] {
+    animation: borg-accordion-down 0.2s ease-out;
+}
+.borg-accordion-content__inner {
+    padding-bottom: 1rem;
+    padding-top: 0;
+}
+
+/* ============================================================
+   AVATAR (.borg-avatar)
+   ============================================================ */
+.borg-avatar {
+    position: relative;
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 9999px;
+}
+
+.borg-avatar__image {
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    width: 100%;
+}
+
+.borg-avatar__fallback {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: var(--borg-sys-color-muted);
+    color: var(--borg-sys-color-muted-fg);
+}
+
+/* ============================================================
+   ASPECT RATIO (.borg-aspect-ratio)
+   ============================================================ */
+.borg-aspect-ratio {
+    position: relative;
+    width: 100%;
+}
+
+/* ============================================================
+   INPUT (.borg-input)
+   ============================================================ */
+.borg-input {
+    display: flex;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: var(--borg-p-radius-md);
+    border: 1px solid var(--borg-sys-color-border);
+    background-color: var(--borg-sys-color-card);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    transition: var(--borg-sys-transition);
+    color: var(--borg-sys-color-fg);
+}
+.borg-input::placeholder {
+    color: var(--borg-sys-color-muted-fg);
+}
+.borg-input:focus-visible {
+    outline: none;
+    border-color: var(--borg-sys-color-ring);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--borg-sys-color-ring), transparent 80%);
+}
+.borg-input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.borg-input::file-selector-button {
+    border: 0;
+    background-color: transparent;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--borg-sys-color-fg);
+}
+
+/* ============================================================
+   TEXTAREA (.borg-textarea)
+   ============================================================ */
+.borg-textarea {
+    display: flex;
+    min-height: 5rem;
+    width: 100%;
+    border-radius: var(--borg-p-radius-md);
+    border: 1px solid var(--borg-sys-color-border);
+    background-color: var(--borg-sys-color-card);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    transition: var(--borg-sys-transition);
+    color: var(--borg-sys-color-fg);
+}
+.borg-textarea::placeholder {
+    color: var(--borg-sys-color-muted-fg);
+}
+.borg-textarea:focus-visible {
+    outline: none;
+    border-color: var(--borg-sys-color-ring);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--borg-sys-color-ring), transparent 80%);
+}
+.borg-textarea:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ============================================================
+   LABEL (.borg-label)
+   ============================================================ */
+.borg-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--borg-sys-color-fg);
+}
+.borg-label--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ============================================================
+   CHECKBOX (.borg-checkbox)
+   ============================================================ */
+.borg-checkbox {
+    height: 1rem;
+    width: 1rem;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid var(--borg-sys-color-border);
+    background-color: var(--borg-sys-color-card);
+    transition: var(--borg-sys-transition);
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.borg-checkbox[data-state=checked] {
+    background-color: var(--borg-sys-color-primary);
+    border-color: var(--borg-sys-color-primary);
+    color: var(--borg-sys-color-primary-fg);
+}
+.borg-checkbox-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+}
+
+/* ============================================================
+   SWITCH (.borg-switch)
+   ============================================================ */
+.borg-switch {
+    display: inline-flex;
+    height: 1.25rem;
+    width: 2.25rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    transition: var(--borg-sys-transition);
+    background-color: var(--borg-sys-color-muted);
+    outline: none;
+}
+.borg-switch[data-state=checked] {
+    background-color: var(--borg-sys-color-primary);
+}
+.borg-switch-thumb {
+    pointer-events: none;
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 9999px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: transform 150ms;
+}
+.borg-switch-thumb[data-state=checked] {
+    transform: translateX(1rem);
+}
+
+/* ============================================================
+   TOGGLE (.borg-toggle)
+   ============================================================ */
+.borg-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--borg-p-radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--borg-sys-transition);
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--borg-sys-color-fg);
+    border: 1px solid transparent;
+}
+.borg-toggle:hover {
+    background-color: var(--borg-sys-color-muted);
+    color: var(--borg-sys-color-muted-fg);
+}
+.borg-toggle[data-state=on] {
+    background-color: var(--borg-sys-color-accent);
+    color: var(--borg-sys-color-accent-fg);
+}
+.borg-toggle--outline {
+    border-color: var(--borg-sys-color-border);
+}
+
+/* ============================================================
+   TOGGLE GROUP (.borg-toggle-group)
+   ============================================================ */
+.borg-toggle-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    background-color: var(--borg-sys-color-border);
+    border-radius: var(--borg-p-radius-md);
+    overflow: hidden;
+    width: fit-content;
+}
+.borg-toggle-group-item {
+    background-color: var(--borg-sys-color-bg);
+    border-radius: 0;
+}
+.borg-toggle-group-item[data-state=on] {
+    background-color: var(--borg-sys-color-accent);
+}
+
+/* ============================================================
+   SEPARATOR (.borg-separator)
+   ============================================================ */
+.borg-separator {
+    background-color: var(--borg-sys-color-border);
+    flex-shrink: 0;
+}
+.borg-separator--horizontal {
+    height: 1px;
+    width: 100%;
+}
+.borg-separator--vertical {
+    height: 100%;
+    width: 1px;
+}
+
+/* ============================================================
+   PROGRESS (.borg-progress)
+   ============================================================ */
+.borg-progress {
+    position: relative;
+    height: 0.5rem;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 9999px;
+    background-color: color-mix(in srgb, var(--borg-sys-color-primary), transparent 80%);
+}
+.borg-progress-indicator {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    background-color: var(--borg-sys-color-primary);
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   SLIDER (.borg-slider)
+   ============================================================ */
+.borg-slider {
+    position: relative;
+    display: flex;
+    width: 100%;
+    touch-action: none;
+    user-select: none;
+    align-items: center;
+}
+.borg-slider-track {
+    position: relative;
+    height: 0.5rem;
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: 9999px;
+    background-color: var(--borg-sys-color-muted);
+}
+.borg-slider-range {
+    position: absolute;
+    height: 100%;
+    background-color: var(--borg-sys-color-primary);
+}
+.borg-slider-thumb {
+    display: block;
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 9999px;
+    border: 2px solid var(--borg-sys-color-primary);
+    background-color: var(--borg-sys-color-card);
+    transition: var(--borg-sys-transition);
+    outline: none;
+    cursor: pointer;
+}
+
+/* ============================================================
+   TABS (.borg-tabs)
+   ============================================================ */
+.borg-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.borg-tabs-list {
+    display: inline-flex;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--borg-p-radius-lg);
+    background-color: var(--borg-sys-color-muted);
+    padding: 0.25rem;
+}
+.borg-tabs-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: var(--borg-p-radius-md);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--borg-sys-transition);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--borg-sys-color-muted-fg);
+}
+.borg-tabs-trigger[data-state=active] {
+    background-color: var(--borg-sys-color-card);
+    color: var(--borg-sys-color-fg);
+    box-shadow: var(--borg-sys-shadow-sm);
+}
+.borg-tabs-content {
+    margin-top: 0.5rem;
+    outline: none;
+}
+
+/* ============================================================
+   SCROLL AREA (.borg-scroll-area)
+   ============================================================ */
+.borg-scroll-area {
+    position: relative;
+    overflow: hidden;
+}
+.borg-scroll-viewport {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+.borg-scrollbar {
+    display: flex;
+    user-select: none;
+    touch-action: none;
+    padding: 2px;
+    background-color: transparent;
+    transition: background-color 150ms ease-out;
+}
+.borg-scrollbar:hover {
+    background-color: var(--borg-sys-color-muted);
+}
+.borg-scrollbar--vertical {
+    width: 10px;
+}
+.borg-scrollbar--horizontal {
+    flex-direction: column;
+    height: 10px;
+}
+.borg-scroll-thumb {
+    flex: 1;
+    background-color: var(--borg-sys-color-border);
+    border-radius: 10px;
+    position: relative;
+}
+
+/* ============================================================
+   SELECT (.borg-select)
+   ============================================================ */
+.borg-select-trigger {
+    display: flex;
+    height: 2.25rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--borg-p-radius-md);
+    border: 1px solid var(--borg-sys-color-border);
+    background-color: transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    transition: var(--borg-sys-transition);
+}
+.borg-select-trigger:focus {
+    outline: none;
+    border-color: var(--borg-sys-color-ring);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--borg-sys-color-ring), transparent 80%);
+}
+.borg-select-trigger:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ============================================================
+   TOOLTIP (.borg-tooltip)
+   ============================================================ */
+.borg-tooltip-content {
+    z-index: 50;
+    overflow: hidden;
+    border-radius: var(--borg-p-radius-md);
+    background-color: var(--borg-sys-color-primary);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    color: var(--borg-sys-color-primary-fg);
+    box-shadow: var(--borg-sys-shadow-md);
+}
+
+/* ============================================================
+   COMMAND (.borg-command)
+   ============================================================ */
+.borg-command {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--borg-p-radius-md);
+    background-color: var(--borg-sys-color-bg);
+}
+.borg-command-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--borg-sys-color-border);
+    padding: 0 0.75rem;
+}
+.borg-command-input {
+    display: flex;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: var(--borg-p-radius-md);
+    background-color: transparent;
+    padding: 0.75rem 0;
+    font-size: 0.875rem;
+    outline: none;
+}
+.borg-command-list {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.borg-command-empty {
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.875rem;
+}
+.borg-command-group {
+    overflow: hidden;
+    padding: 0.25rem;
+    color: var(--borg-sys-color-fg);
+}
+.borg-command-item {
+    position: relative;
+    display: flex;
+    cursor: default;
+    user-select: none;
+    align-items: center;
+    border-radius: var(--borg-p-radius-sm);
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+    outline: none;
+}
+.borg-command-item[data-selected=true] {
+    background-color: var(--borg-sys-color-accent);
+    color: var(--borg-sys-color-accent-fg);
+}
+
+/* ============================================================
+   DIALOG / OVERLAY / POPOVER (.borg-overlay, .borg-popover)
+   ============================================================ */
+.borg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+.borg-overlay[data-state=open] { animation: borg-fade-in 150ms ease-out; }
+.borg-overlay[data-state=closed] { animation: borg-fade-out 150ms ease-in; }
+
+.borg-popover {
+    z-index: 50;
+    width: 18rem;
+    border-radius: var(--borg-p-radius-md);
+    border: 1px solid var(--borg-sys-color-border);
+    background-color: var(--borg-sys-color-card);
+    padding: 1rem;
+    color: var(--borg-sys-color-fg);
+    box-shadow: var(--borg-sys-shadow-md);
+    outline: none;
+}
+.borg-popover[data-state=open] { animation: borg-zoom-in 150ms ease-out; }
+.borg-popover[data-state=closed] { animation: borg-zoom-out 150ms ease-in; }
+
+.borg-dialog-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 50;
+    grid: 1fr;
+    width: 100%;
+    max-width: 32rem;
+    transform: translate(-50%, -50%);
+    gap: 1rem;
+    border-radius: var(--borg-p-radius-lg);
+    border: 1px solid var(--borg-sys-color-border);
+    background-color: var(--borg-sys-color-bg);
+    padding: 1.5rem;
+    box-shadow: var(--borg-sys-shadow-lg);
+    outline: none;
+}
+.borg-dialog-content[data-state=open] { animation: borg-zoom-in 150ms ease-out; }
+
+/* ============================================================
+   CARD TOGGLE (.borg-card-toggle)
+   ============================================================ */
+.borg-card-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--borg-sys-color-border);
+    border-radius: var(--borg-p-radius-xl);
+    background-color: var(--borg-sys-color-card);
+    cursor: pointer;
+    transition: var(--borg-sys-transition);
+}
+.borg-card-toggle:hover { border-color: var(--borg-sys-color-primary); }
+.borg-card-toggle[data-state=checked] { background-color: color-mix(in srgb, var(--borg-sys-color-primary), transparent 95%); border-color: var(--borg-sys-color-primary); }
+
+.borg-card-toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--borg-p-radius-lg);
+    background-color: var(--borg-sys-color-muted);
+    color: var(--borg-sys-color-muted-fg);
+}
+.borg-card-toggle[data-state=checked] .borg-card-toggle-icon { background-color: var(--borg-sys-color-primary); color: var(--borg-sys-color-primary-fg); }
+
+.borg-card-toggle-content { display: flex; flex-direction: column; flex: 1; }
+.borg-card-toggle-title { font-size: 0.875rem; font-weight: 600; color: var(--borg-sys-color-fg); }
+.borg-card-toggle-desc { font-size: 0.75rem; color: var(--borg-sys-color-muted-fg); }
+
+.borg-card-toggle-switch {
+    width: 2rem;
+    height: 1rem;
+    border-radius: 9999px;
+    background-color: var(--borg-sys-color-muted);
+    position: relative;
+    transition: background-color 200ms;
+}
+.borg-card-toggle[data-state=checked] .borg-card-toggle-switch { background-color: var(--borg-sys-color-primary); }
+.borg-card-toggle-thumb {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: #fff;
+    border-radius: 9999px;
+    position: absolute;
+    top: 0.125rem;
+    left: 0.125rem;
+    transition: transform 200ms;
+}
+.borg-card-toggle[data-state=checked] .borg-card-toggle-thumb { transform: translateX(1rem); }
+
+/* ============================================================
+   CALENDAR (.borg-calendar)
+   ============================================================ */
+.borg-calendar { padding: 0.75rem; }
+.borg-calendar .rdp-months { display: flex; flex-direction: column; gap: 0.5rem; }
+@media (min-width: 640px) { .borg-calendar .rdp-months { flex-direction: row; } }
+.borg-calendar .rdp-caption { display: flex; justify-content: center; position: relative; align-items: center; width: 100%; padding-top: 0.25rem; }
+.borg-calendar .rdp-caption_label { font-size: 0.875rem; font-weight: 500; }
+.borg-calendar .rdp-nav { display: flex; align-items: center; gap: 0.25rem; }
+.borg-calendar .rdp-table { width: 100%; border-collapse: collapse; }
+.borg-calendar .rdp-head_cell { color: var(--borg-sys-color-muted-fg); width: 2rem; font-weight: 400; font-size: 0.8rem; }
+.borg-calendar .rdp-cell { position: relative; padding: 0; text-align: center; font-size: 0.875rem; }
+.borg-calendar .rdp-day { width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--borg-p-radius-md); transition: background-color 150ms; }
+.borg-calendar .rdp-day:hover { background-color: var(--borg-sys-color-accent); color: var(--borg-sys-color-accent-fg); }
+.borg-calendar .rdp-day_selected { background-color: var(--borg-sys-color-primary); color: var(--borg-sys-color-primary-fg); }
+.borg-calendar .rdp-day_today { background-color: var(--borg-sys-color-muted); font-weight: 600; }
+
+/* ============================================================
+   CAROUSEL (.borg-carousel)
+   ============================================================ */
+.borg-carousel { position: relative; width: 100%; }
+.borg-carousel-content { display: flex; overflow: hidden; }
+.borg-carousel-item { flex: 0 0 100%; min-width: 0; position: relative; }
+.borg-carousel-button { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 2.5rem; height: 2.5rem; border-radius: 9999px; background-color: var(--borg-sys-color-card); border: 1px solid var(--borg-sys-color-border); display: flex; align-items: center; justify-content: center; transition: var(--borg-sys-transition); cursor: pointer; }
+.borg-carousel-button:hover { background-color: var(--borg-sys-color-muted); }
+.borg-carousel-button--prev { left: 1rem; }
+.borg-carousel-button--next { right: 1rem; }
+
+/* ============================================================
+   CHART (.borg-chart)
+   ============================================================ */
+.borg-chart-container { display: flex; width: 100%; height: 100%; flex-direction: column; overflow: hidden; }
+.borg-chart-tooltip { border: 1px solid var(--borg-sys-color-border); background-color: var(--borg-sys-color-card); border-radius: var(--borg-p-radius-md); padding: 0.5rem; box-shadow: var(--borg-sys-shadow-md); color: var(--borg-sys-color-fg); }
+
+/* ============================================================
+   SHEET (.borg-sheet)
+   ============================================================ */
+.borg-sheet-content {
+    position: fixed;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--borg-sys-color-bg);
+    padding: 1.5rem;
+    box-shadow: var(--borg-sys-shadow-lg);
+    transition: transform 300ms ease;
+}
+.borg-sheet-content--right { top: 0; bottom: 0; right: 0; padding-right: 0.5rem; width: 75%; border-left: 1px solid var(--borg-sys-color-border); }
+@media (min-width: 640px) { .borg-sheet-content--right { max-width: 24rem; } }
+
+/* ============================================================
+   RESIZABLE (.borg-resizable)
+   ============================================================ */
+.borg-resizable-handle {
+    position: relative;
+    display: flex;
+    width: 1px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--borg-sys-color-border);
+    outline: none;
+}
+.borg-resizable-handle::after {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 0.25rem;
+    transform: translateX(-50%);
+    content: "";
+}
+
+/* ============================================================
+   DRAWER (.borg-drawer)
+   ============================================================ */
+.borg-drawer-content {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--borg-sys-color-card);
+    transition: transform 300ms ease;
+}
+.borg-drawer-content--left {
+    top: 0; bottom: 0;
+    left: 0;
+    width: 90vw;
+    border-right: 1px solid var(--borg-sys-color-border);
+}
+.borg-drawer-content--right {
+    top: 0; bottom: 0;
+    right: 0;
+    width: 90vw;
+    border-left: 1px solid var(--borg-sys-color-border);
+}
+
+/* ============================================================
+   FORM (.borg-form)
+   ============================================================ */
+.borg-form-item {
+    display: grid;
+    gap: 0.5rem;
+}
+.borg-form-description {
+    font-size: 0.875rem;
+    color: var(--borg-sys-color-muted-fg);
+}
+.borg-form-message {
+    font-size: 0.875rem;
+    color: var(--borg-sys-color-destructive);
+}
+
+/* ============================================================
+   PAGINATION (.borg-pagination)
+   ============================================================ */
+.borg-pagination {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.borg-pagination-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* ============================================================
+   SIDEBAR (.borg-sidebar)
+   ============================================================ */
+.borg-sidebar-wrapper {
+    display: flex;
+    min-height: 100svh;
+    width: 100%;
+}
+.borg-sidebar {
+    background-color: var(--borg-sys-color-bg);
+    color: var(--borg-sys-color-fg);
+    width: var(--sidebar-width);
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    border-right: 1px solid var(--borg-sys-color-border);
+}
+.borg-sidebar-content {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: auto;
+}
+.borg-sidebar-header, .borg-sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+/* ============================================================
+   TABLE (.borg-table)
+   ============================================================ */
+.borg-table-container {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+}
+.borg-table {
+    width: 100%;
+    caption-side: bottom;
+    font-size: 0.875rem;
+    border-collapse: collapse;
+}
+.borg-table tr {
+    border-bottom: 1px solid var(--borg-sys-color-border);
+    transition: background-color 150ms;
+}
+.borg-table tr:last-child {
+    border-bottom: 0;
+}
+.borg-table tr:hover {
+    background-color: color-mix(in srgb, var(--borg-sys-color-muted), transparent 50%);
+}
+.borg-table th {
+    height: 2.5rem;
+    padding: 0 0.5rem;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 500;
+    color: var(--borg-sys-color-muted-fg);
+}
+.borg-table td {
+    padding: 0.5rem;
+    vertical-align: middle;
+}
+
+/* ============================================================
+   SKELETON (.borg-skeleton)
+   ============================================================ */
+.borg-skeleton {
+    background-color: var(--borg-sys-color-muted);
+    border-radius: var(--borg-p-radius-md);
+    animation: borg-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================================
+   DROPDOWN MENU (.borg-dropdown)
+   ============================================================ */
+.borg-dropdown-content {
+    z-index: 50;
+    min-width: 8rem;
+    overflow: hidden;
+    border-radius: var(--borg-p-radius-md);
+    border: 1px solid var(--borg-sys-color-border);
+    background-color: var(--borg-sys-color-card);
+    padding: 0.25rem;
+    color: var(--borg-sys-color-fg);
+    box-shadow: var(--borg-sys-shadow-md);
+}
+.borg-dropdown-content[data-state=open] { animation: borg-fade-in 150ms ease-out; }
+.borg-dropdown-content[data-state=closed] { animation: borg-fade-out 150ms ease-in; }
+
+.borg-dropdown-item {
+    position: relative;
+    display: flex;
+    cursor: default;
+    user-select: none;
+    align-items: center;
+    border-radius: var(--borg-p-radius-sm);
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+    outline: none;
+    transition: background-color 150ms;
+}
+.borg-dropdown-item:focus {
+    background-color: var(--borg-sys-color-accent);
+    color: var(--borg-sys-color-accent-fg);
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.borg-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+.borg-overflow-hidden {
+    overflow: hidden;
+}
+.borg-p-0 {
+    padding: 0;
+}
+.borg-ml-auto {
+    margin-left: auto;
+}
+.borg-size-4 {
+    width: 1rem;
+    height: 1rem;
+}
+.borg-size-7 {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+.borg-opacity-50 {
+    opacity: 0.5;
+}
+.borg-hidden { display: none; }
+.borg-sm-block { display: block; }
+@media (min-width: 640px) {
+    .borg-sm-block { display: block; }
+}
+
+/* ============================================================
+    RADIO GROUP (.borg-radio-group)
+    ============================================================ */
+.borg-radio-group {
+    display: grid;
+    gap: var(--borg-p-space-3);
+}
+
+.borg-radio-group-item {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    font: inherit;
+    color: var(--borg-sys-color-primary);
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--borg-sys-color-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--borg-sys-transition);
+    cursor: pointer;
+    outline: none;
+    flex-shrink: 0;
+    position: relative;
+    box-shadow: var(--borg-sys-shadow-xs);
+}
+
+.borg-radio-group-item:focus-visible {
+    border-color: var(--borg-sys-color-ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--borg-sys-color-ring), transparent 50%);
+}
+
+.borg-radio-group-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.borg-radio-group-icon {
+    width: 0.5rem;
+    height: 0.5rem;
+    fill: currentColor;
+}
+
+/* ============================================================
+   INPUT OTP (.borg-input-otp)
+   ============================================================ */
+.borg-input-otp {
+    display: flex;
+    align-items: center;
+    gap: var(--borg-p-space-2);
+}
+
+.borg-input-otp-group {
+    display: flex;
+    align-items: center;
+}
+
+.borg-input-otp-slot {
+    position: relative;
+    display: flex;
+    height: 2.5rem;
+    width: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    border-block: 1px solid var(--borg-sys-color-border);
+    border-inline-end: 1px solid var(--borg-sys-color-border);
+    font-size: 0.875rem;
+    transition: all 150ms;
+}
+
+.borg-input-otp-slot:first-child {
+    border-inline-start: 1px solid var(--borg-sys-color-border);
+    border-start-start-radius: var(--borg-p-radius-md);
+    border-end-start-radius: var(--borg-p-radius-md);
+}
+
+.borg-input-otp-slot:last-child {
+    border-end-end-radius: var(--borg-p-radius-md);
+    border-start-end-radius: var(--borg-p-radius-md);
+}
+
+.borg-input-otp-slot--active {
+    z-index: 10;
+    border: 1px solid var(--borg-sys-color-ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--borg-sys-color-ring), transparent 50%);
+}
+
+.borg-input-otp-caret {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.borg-input-otp-caret-inner {
+    height: 1rem;
+    width: 1px;
+    background-color: var(--borg-sys-color-fg);
+    animation: borg-caret-blink 1s step-end infinite;
+}
+
+.borg-input-otp-separator {
+    /* styling for separator */
+    padding: 0 var(--borg-p-space-2);
+}
+
+@keyframes borg-caret-blink {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* ============================================================
+   CONTEXT MENU (.borg-context-menu)
+   ============================================================ */
+.borg-context-menu-content {
+    z-index: var(--borg-sys-z-overlay);
+    min-width: 8rem;
+    overflow: hidden;
+    border-radius: var(--borg-p-radius-md);
+    border: 1px solid var(--borg-sys-color-border);
+    background-color: var(--borg-sys-color-popover);
+    padding: 0.25rem;
+    color: var(--borg-sys-color-popover-fg);
+    box-shadow: var(--borg-sys-shadow-md);
+    animation: borg-in 0.15s ease-out;
+}
+
+.borg-context-menu-item {
+    position: relative;
+    display: flex;
+    cursor: default;
+    user-select: none;
+    align-items: center;
+    border-radius: var(--borg-p-radius-sm);
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+    outline: none;
+    transition: background-color 150ms;
+}
+
+.borg-context-menu-item:focus {
+    background-color: var(--borg-sys-color-accent);
+    color: var(--borg-sys-color-accent-fg);
+}
+
+.borg-context-menu-item[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.borg-context-menu-label {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.borg-context-menu-separator {
+    height: 1px;
+    margin: 0.25rem -0.25rem;
+    background-color: var(--borg-sys-color-border);
+}
+
+.borg-context-menu-shortcut {
+    margin-left: auto;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+}
+
+.borg-context-menu-checkbox-item,
+.borg-context-menu-radio-item {
+    padding-left: 2rem;
+}
+
+.borg-context-menu-indicator {
+    position: absolute;
+    left: 0.5rem;
+    display: flex;
+    height: 1rem;
+    width: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+ .borg-context-menu-icon {
+     height: 1rem;
+     width: 1rem;
+ }
+ 
+ .borg-context-menu-icon-small {
+     height: 0.5rem;
+     width: 0.5rem;
+     fill: currentColor;
+ }
+
+/* ============================================================
+   ANIMATIONS (Keyframes)
+   ============================================================ */
+@keyframes borg-accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+}
+@keyframes borg-accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+}
+@keyframes borg-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes borg-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes borg-zoom-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes borg-zoom-out {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+}
+@keyframes borg-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+@keyframes borg-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.borg-animate-spin { animation: borg-spin 1s linear infinite; }

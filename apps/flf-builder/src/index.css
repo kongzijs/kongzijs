@@ -1,0 +1,235 @@
+@import "tailwindcss";
+@import "@kongzijs/flf-builder/style.css";
+
+@source "../../../packages/react/src/**/*.tsx";
+
+@theme {
+    --color-fluence-blue: #3971b8;
+    --color-fluence-vanilla: #f6e6a5;
+    --color-fluence-tea-green: #c8d69b;
+    --color-fluence-ivory: #fbfcef;
+    --color-fluence-dark: #343b1b;
+    --color-fluence-orange: #f97316;
+
+    --color-background: #fbfcef;
+    --color-foreground: #343b1b;
+    --color-card: #ffffff;
+    --color-card-foreground: #343b1b;
+    --color-popover: #ffffff;
+    --color-popover-foreground: #343b1b;
+    --color-primary: #3971b8;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #c8d69b;
+    --color-secondary-foreground: #2a3010;
+    --color-accent: #f6e6a5;
+    --color-accent-foreground: #5c4d1a;
+    --color-muted: #f0f1e5;
+    --color-muted-foreground: #6b7040;
+    --color-destructive: #dc2626;
+    --color-destructive-foreground: #ffffff;
+    --color-border: #343b1b;
+    --color-input: #d4d6c8;
+    --color-ring: #3971b8;
+}
+
+:root {
+    --color-background: #fbfcef;
+    --color-foreground: #343b1b;
+    --color-card: #ffffff;
+    --color-card-foreground: #343b1b;
+    --color-primary: #3971b8;
+    --color-primary-foreground: #ffffff;
+    --color-border: #343b1b;
+}
+
+body {
+    margin: 0;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    height: 100vh;
+}
+
+/* Fluence theme overrides for flf-builder */
+.flf-builder {
+    --flf-builder-color-primary: #3971b8;
+    --flf-builder-color-secondary: #c8d69b;
+    --flf-builder-color-bg: #fbfcef;
+    --flf-builder-color-surface: #ffffff;
+    --flf-builder-color-text: #343b1b;
+    --flf-builder-color-border: #d4d6c8;
+    --flf-builder-font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+    --flf-builder-radius-md: 0.5rem;
+}
+
+/* =====================================================
+   CRITICAL: Override Tailwind on @borgtj/react inputs
+   These must be OUTSIDE any @layer to win the cascade.
+   ===================================================== */
+.flf-builder [data-slot="input"],
+.flf-builder [data-slot="textarea"],
+.flf-builder [data-slot="select-trigger"] {
+    padding-inline: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d4d6c8;
+    background-color: #ffffff;
+    font-size: 0.9375rem;
+    color: #343b1b;
+    font-family: inherit;
+}
+
+.flf-builder [data-slot="input"],
+.flf-builder [data-slot="select-trigger"] {
+    height: 40px;
+    width: 100%;
+}
+
+/* Trigger: flex layout so chevron stays on the right */
+.flf-builder [data-slot="select-trigger"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.flf-builder [data-slot="select-trigger"] svg {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.5;
+}
+
+.flf-builder [data-slot="textarea"] {
+    padding-block: 0.75rem;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.flf-builder [data-slot="input"]:focus,
+.flf-builder [data-slot="input"]:focus-visible,
+.flf-builder [data-slot="textarea"]:focus,
+.flf-builder [data-slot="textarea"]:focus-visible,
+.flf-builder [data-slot="select-trigger"]:focus,
+.flf-builder [data-slot="select-trigger"][data-state="open"] {
+    border-color: #3971b8;
+    box-shadow: 0 0 0 3px rgb(57 113 184 / 15%);
+    outline: none;
+}
+
+/* =====================================================
+   Select Dropdown — global (Radix portals are outside
+   the .flf-builder wrapper so these must be unscoped)
+   ===================================================== */
+[data-slot="select-content"] {
+    position: relative;
+    z-index: 50;
+    min-width: 8rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid #d4d6c8;
+    background-color: #ffffff;
+    color: #343b1b;
+    box-shadow:
+        0 8px 24px rgb(0 0 0 / 10%),
+        0 2px 8px rgb(0 0 0 / 6%);
+    animation-duration: 120ms;
+    animation-timing-function: ease;
+}
+
+[data-slot="select-content"][data-state="open"] {
+    animation-name: flf-select-in;
+}
+
+[data-slot="select-content"][data-state="closed"] {
+    animation-name: flf-select-out;
+}
+
+@keyframes flf-select-in {
+    from {
+        opacity: 0;
+        transform: scale(0.97) translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes flf-select-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+}
+
+/* Radix renders the viewport with data-radix-select-viewport, not data-slot */
+[data-radix-select-viewport] {
+    padding: 0.25rem;
+    max-height: var(--radix-select-content-available-height, 280px);
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* Ensure the popper wrapper matches trigger width exactly */
+[data-radix-popper-content-wrapper] {
+    width: var(--radix-select-trigger-width) !important;
+}
+
+[data-slot="select-item"] {
+    position: relative;
+    display: flex;
+    width: 100%;
+    cursor: default;
+    user-select: none;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.375rem;
+    padding-block: 0.5rem;
+    padding-inline-start: 2rem; /* room for left-side checkmark */
+    padding-inline-end: 0.625rem;
+    font-size: 0.875rem;
+    color: #343b1b;
+    outline: none;
+    transition: background-color 100ms ease;
+}
+
+[data-slot="select-item"]:hover,
+[data-slot="select-item"][data-highlighted] {
+    background-color: #f0f1e5;
+    color: #343b1b;
+}
+
+[data-slot="select-item"][data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Checkmark — left side, vertically centered */
+[data-slot="select-item-indicator"] {
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3971b8;
+}
+
+[data-slot="select-separator"] {
+    height: 1px;
+    background-color: #e2e4e9;
+    margin-inline: -0.25rem;
+    margin-block: 0.25rem;
+}

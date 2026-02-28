@@ -1,0 +1,25 @@
+
+
+> @kongzijs/flf-builder-app@0.1.0 lint /Volumes/ORICO/ws/prj/kongzijs/kongzijs/apps/flf-builder
+> eslint . --ext .ts,.tsx
+
+=============
+
+WARNING: You are currently running a version of TypeScript which is not officially supported by @typescript-eslint/typescript-estree.
+
+You may find that it works just fine, or you may not.
+
+SUPPORTED TYPESCRIPT VERSIONS: >=4.7.4 <5.6.0
+
+YOUR TYPESCRIPT VERSION: 5.9.3
+
+Please only submit bug reports when using the officially supported version.
+
+=============
+[0m[0m
+[0m[4m/Volumes/ORICO/ws/prj/kongzijs/kongzijs/apps/flf-builder/src/App.tsx[24m[0m
+[0m   [2m18:43[22m  [33mwarning[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m246:39[22m  [33mwarning[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[33m[1m✖ 2 problems (0 errors, 2 warnings)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m

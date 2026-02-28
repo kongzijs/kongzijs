@@ -1,0 +1,12 @@
+/**
+ * FLF Builder — Objects: Grid
+ * .flf-builder-grid
+ */
+
+.flf-builder-grid {
+    display: grid;
+    /* Automatically fit columns of at least 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--flf-builder-space-5);
+    width: 100%;
+}

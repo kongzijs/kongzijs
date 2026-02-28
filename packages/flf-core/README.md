@@ -190,7 +190,7 @@ pnpm test:coverage
 ## 相关 RFC
 
 - [RFC 0017: FLF JSON Specification](../../docs/rfc/0017-flf-specification.md)
-- [RFC 0020: FLF Transformer Engine](../../docs/rfc/0020-flf-transformer.md)
+- [RFC 0020: FLF Transformer Engine](../../docs/rfc/completed/0020-flf-transformer.md)
 - [RFC 0018: Flow Canvas (React Flow)](../../docs/rfc/0018-flf-ui-experience.md)
 
 ## 许可证

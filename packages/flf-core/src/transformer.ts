@@ -46,7 +46,7 @@ export const FLFTransformer = {
             } else if (edge.condition === "fail") {
                 sourceHandle = "fail";
             }
-            
+
             // 水平 flow 的路径分离
             // pathOptions.offset 是垂直方向的偏移（对于水平 flow）
             let pathOffset = 0;
@@ -67,9 +67,12 @@ export const FLFTransformer = {
                 data: { condition: edge.condition },
                 style: {
                     strokeWidth: 3,
-                    stroke: edge.condition === "success" ? "#10b981" 
-                        : edge.condition === "fail" ? "#ef4444" 
-                        : "#94a3b8",
+                    stroke:
+                        edge.condition === "success"
+                            ? "#10b981"
+                            : edge.condition === "fail"
+                              ? "#ef4444"
+                              : "#94a3b8",
                 },
                 pathOptions: {
                     offset: pathOffset, // 垂直方向的偏移（对于水平 flow）
@@ -77,9 +80,12 @@ export const FLFTransformer = {
                 },
                 markerEnd: {
                     type: "arrowclosed",
-                    color: edge.condition === "success" ? "#10b981" 
-                        : edge.condition === "fail" ? "#ef4444" 
-                        : "#94a3b8",
+                    color:
+                        edge.condition === "success"
+                            ? "#10b981"
+                            : edge.condition === "fail"
+                              ? "#ef4444"
+                              : "#94a3b8",
                 },
             };
         });
@@ -125,6 +131,8 @@ export const FLFTransformer = {
                         markdown: n.data?.markdown,
                         title: n.data?.title,
                         media_ids: n.data?.media_ids,
+                        quiz_dsl: n.data?.quiz_dsl, // RFC 0031: 完整透传 DSL 镜像
+                        questions: n.data?.questions, // Ensure questions are persisted (RFC 0027)
                     },
                     rules: n.data?.rules,
                     position: n.position,
@@ -137,10 +145,118 @@ export const FLFTransformer = {
                 target: e.target,
                 label: e.label,
                 // 从 sourceHandle 或 data.condition 获取 condition（RFC 0018）
-                condition: e.sourceHandle === "success" ? "success" 
-                    : e.sourceHandle === "fail" ? "fail"
-                    : e.data?.condition || "default",
+                condition:
+                    e.sourceHandle === "success"
+                        ? "success"
+                        : e.sourceHandle === "fail"
+                          ? "fail"
+                          : e.data?.condition || "default",
             })),
         };
+    },
+
+    /**
+     * 将 FLF Question 模型转换为 QuizerJS DSL
+     */
+    toQuizDSL(questions: any[], options: { id: string; title: string }): any {
+        // RFC 0031: Reconstruct sections if available
+        const sectionsMap = new Map<string, any[]>();
+        const flatQuestions: any[] = [];
+
+        (questions || []).forEach((q: any) => {
+            const sectionTitle = q.section_title || q.sectionTitle || "";
+            if (sectionTitle) {
+                if (!sectionsMap.has(sectionTitle)) {
+                    sectionsMap.set(sectionTitle, []);
+                }
+                sectionsMap.get(sectionTitle)!.push(q);
+            } else {
+                flatQuestions.push(q);
+            }
+        });
+
+        const mapQuestion = (q: any) => ({
+            id: q.id,
+            type: q.type,
+            title: q.title || "", // RFC 0031
+            description: q.description || "", // RFC 0031
+            text: q.text,
+            points: q.points || 1,
+            correctAnswer: q.correct_answer_text || q.correctAnswer,
+            options:
+                q.options?.map((o: any) => ({
+                    id: o.id,
+                    text: o.text,
+                    isCorrect: !!(o.is_correct || o.isCorrect),
+                })) || [],
+        });
+
+        const quiz: any = {
+            id: options.id,
+            title: options.title,
+        };
+
+        if (sectionsMap.size > 0) {
+            quiz.sections = Array.from(sectionsMap.entries()).map(
+                ([title, qs], idx) => ({
+                    id: `${options.id}-section-${idx}`,
+                    title: title,
+                    questions: qs.map(mapQuestion),
+                }),
+            );
+            // If there were flat questions, add them to a default section
+            if (flatQuestions.length > 0) {
+                quiz.sections.push({
+                    id: `${options.id}-section-default`,
+                    title: "Other Questions",
+                    questions: flatQuestions.map(mapQuestion),
+                });
+            }
+        } else {
+            quiz.questions = (questions || []).map(mapQuestion);
+        }
+
+        return {
+            version: "1.0",
+            quiz,
+        };
+    },
+
+    /**
+     * 将 QuizerJS DSL 转换为 FLF Question 模型
+     */
+    fromQuizDSL(dsl: any): any[] {
+        let sourceQuestions: any[] = [];
+
+        // Handle sections structure (Nest support)
+        if (dsl.quiz.sections && Array.isArray(dsl.quiz.sections)) {
+            sourceQuestions = dsl.quiz.sections.flatMap((s: any) =>
+                (s.questions || []).map((q: any) => ({
+                    ...q,
+                    section_title: s.title, // RFC 0031: Tag question with section title
+                })),
+            );
+        }
+        // Handle flat questions structure (Legacy/Fallback)
+        else if (dsl.quiz.questions) {
+            sourceQuestions = dsl.quiz.questions;
+        }
+
+        return sourceQuestions.map((q: any) => ({
+            id: q.id,
+            type: q.type,
+            title: q.title || "", // RFC 0031
+            description: q.description || "", // RFC 0031
+            text: q.text,
+            points: q.points || 1,
+            section_title: q.section_title || "",
+            correctAnswer: q.correctAnswer,
+            options:
+                q.options?.map((o: any) => ({
+                    id: o.id,
+                    text: o.text,
+                    is_correct: !!(o.isCorrect || o.is_correct),
+                })) || [],
+        }));
     },
 };

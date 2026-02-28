@@ -1,0 +1,29 @@
+
+
+> @kongzijs/flf-i18n@0.1.0 test /Volumes/ORICO/ws/prj/kongzijs/kongzijs/packages/flf-i18n
+> vitest run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90m/Volumes/ORICO/ws/prj/kongzijs/kongzijs/packages/flf-i18n[39m
+
+[?25l [32m✓[39m [2msrc/__tests__/[22mdictiona
+ry[2m.test.ts[22m[2m (2)[22m
+   [32m✓[39m FLF i18n dictionarie
+s[2m (2)[22m
+     [32m✓[39m enUS has required 
+editor keys including ses
+sionPersistenceDesc
+     [32m✓[39m zhCN has required 
+editor keys including ses
+sionPersistenceDesc
+[?25l[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G [32m✓[39m [2msrc/__tests__/[22mdictionary[2m.test.ts[22m[2m (2)[22m
+   [32m✓[39m FLF i18n dictionaries[2m (2)[22m
+     [32m✓[39m enUS has required editor keys including sessionPersistenceDesc
+     [32m✓[39m zhCN has required editor keys including sessionPersistenceDesc
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m   Start at [22m 09:18:12
+[2m   Duration [22m 1.21s[2m (transform 172ms, setup 0ms, collect 258ms, tests 3ms, environment 0ms, prepare 195ms)[22m
+
+[?25h[?25h

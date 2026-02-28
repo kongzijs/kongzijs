@@ -20,7 +20,7 @@ cd apps/demo-react
 pnpm dev
 ```
 
-应用将在 `http://localhost:3001` 启动。
+应用将在 `http://localhost:5173` 启动（Vite 默认端口）。
 
 ## 技术栈
 

@@ -1,0 +1,189 @@
+/**
+ * FLF Builder Design System — Token Definitions
+ * RFC 0035: docs/rfc/completed/0035-flf-builder-design-system.md
+ *
+ * Three-layer token model:
+ *   Layer 1: Primitive tokens (raw values, internal use only)
+ *   Layer 2: Semantic tokens (PUBLIC API — consumers override these)
+ *   Layer 3: Component tokens (component-specific, rarely overridden)
+ *
+ * Usage:
+ *   Consumers override Layer 2 on `.flf-builder` or `:root` to retheme.
+ *
+ * Font:
+ *   Plus Jakarta Sans — friendly, modern, excellent legibility for SaaS tools.
+ *   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+ */
+
+/* ============================================================
+   LAYER 1: Primitive Tokens (internal, do not use directly)
+   ============================================================ */
+.flf-builder {
+    /* Color primitives */
+    --flf-builder-p-blue-50:   #eff6ff;
+    --flf-builder-p-blue-100:  #dbeafe;
+    --flf-builder-p-blue-500:  #3971b8;
+    --flf-builder-p-blue-600:  #2563a8;
+    --flf-builder-p-blue-700:  #1d4ed8;
+    --flf-builder-p-green-50:  #f0fdf4;
+    --flf-builder-p-green-500: #c8d69b;
+    --flf-builder-p-green-600: #16a34a;
+    --flf-builder-p-red-500:   #dc2626;
+    --flf-builder-p-amber-500: #d97706;
+    --flf-builder-p-gray-50:   #f8f9fa;
+    --flf-builder-p-gray-100:  #f0f1f5;
+    --flf-builder-p-gray-200:  #e2e4e9;
+    --flf-builder-p-gray-300:  #d1d5db;
+    --flf-builder-p-gray-400:  #9ca3af;
+    --flf-builder-p-gray-500:  #6b7280;
+    --flf-builder-p-gray-900:  #1a1d23;
+    --flf-builder-p-white:     #ffffff;
+
+    /* Spacing primitives (8px grid) */
+    --flf-builder-p-space-1:  0.25rem;   /* 4px */
+    --flf-builder-p-space-2:  0.5rem;    /* 8px */
+    --flf-builder-p-space-3:  0.75rem;   /* 12px */
+    --flf-builder-p-space-4:  1rem;      /* 16px */
+    --flf-builder-p-space-5:  1.25rem;   /* 20px */
+    --flf-builder-p-space-6:  1.5rem;    /* 24px */
+    --flf-builder-p-space-8:  2rem;      /* 32px */
+    --flf-builder-p-space-10: 2.5rem;    /* 40px */
+    --flf-builder-p-space-12: 3rem;      /* 48px */
+
+    /* Font size primitives (Fluid) */
+    --flf-builder-p-text-xs:   clamp(0.6875rem, 0.65vw + 0.5rem, 0.75rem);
+    --flf-builder-p-text-sm:   clamp(0.8125rem, 0.8vw + 0.6rem, 0.875rem);
+    --flf-builder-p-text-base: clamp(0.9375rem, 1vw + 0.75rem, 1rem);
+    --flf-builder-p-text-lg:   clamp(1.0625rem, 1.25vw + 0.8rem, 1.125rem);
+    --flf-builder-p-text-xl:   clamp(1.25rem, 1.5vw + 1rem, 1.5rem);
+
+    /* Radius primitives */
+    --flf-builder-p-radius-sm: 0.25rem;
+    --flf-builder-p-radius-md: 0.5rem;
+    --flf-builder-p-radius-lg: 0.75rem;
+    --flf-builder-p-radius-xl: 1rem;
+    --flf-builder-p-radius-full: 9999px;
+}
+
+/* ============================================================
+   LAYER 2: Semantic Tokens (PUBLIC API — consumers override these)
+   ============================================================ */
+.flf-builder {
+    /* --- Colors --- */
+    --flf-builder-color-primary:        var(--flf-builder-p-blue-500);
+    --flf-builder-color-primary-hover:  var(--flf-builder-p-blue-600);
+    --flf-builder-color-primary-fg:     var(--flf-builder-p-white);
+    --flf-builder-color-secondary:      var(--flf-builder-p-green-500);
+
+    --flf-builder-color-bg:             var(--flf-builder-p-gray-50);
+    --flf-builder-color-surface:        var(--flf-builder-p-white);
+    --flf-builder-color-surface-raised: var(--flf-builder-p-white);
+    --flf-builder-color-surface-subtle: var(--flf-builder-p-gray-50);
+
+    --flf-builder-color-border:         var(--flf-builder-p-gray-200);
+    --flf-builder-color-border-subtle:  var(--flf-builder-p-gray-100);
+
+    --flf-builder-color-text:           var(--flf-builder-p-gray-900);
+    --flf-builder-color-text-muted:     var(--flf-builder-p-gray-500);
+    --flf-builder-color-text-disabled:  var(--flf-builder-p-gray-400);
+
+    --flf-builder-color-danger:         var(--flf-builder-p-red-500);
+    --flf-builder-color-success:        var(--flf-builder-p-green-600);
+    --flf-builder-color-warning:        var(--flf-builder-p-amber-500);
+
+    /* --- Typography --- */
+    --flf-builder-font-sans:      'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --flf-builder-font-size-xs:   var(--flf-builder-p-text-xs);
+    --flf-builder-font-size-sm:   var(--flf-builder-p-text-sm);
+    --flf-builder-font-size-base: var(--flf-builder-p-text-base);
+    --flf-builder-font-size-lg:   var(--flf-builder-p-text-lg);
+    --flf-builder-font-size-xl:   var(--flf-builder-p-text-xl);
+    --flf-builder-font-weight-normal:   400;
+    --flf-builder-font-weight-medium:   500;
+    --flf-builder-font-weight-semibold: 600;
+    --flf-builder-font-weight-bold:     700;
+    --flf-builder-line-height-tight:    1.25;
+    --flf-builder-line-height-normal:   1.5;
+    --flf-builder-line-height-relaxed:  1.75;
+
+    /* --- Spacing --- */
+    --flf-builder-space-1:  var(--flf-builder-p-space-1);
+    --flf-builder-space-2:  var(--flf-builder-p-space-2);
+    --flf-builder-space-3:  var(--flf-builder-p-space-3);
+    --flf-builder-space-4:  var(--flf-builder-p-space-4);
+    --flf-builder-space-5:  var(--flf-builder-p-space-5);
+    --flf-builder-space-6:  var(--flf-builder-p-space-6);
+    --flf-builder-space-8:  var(--flf-builder-p-space-8);
+    --flf-builder-space-10: var(--flf-builder-p-space-10);
+    --flf-builder-space-12: var(--flf-builder-p-space-12);
+
+    /* --- Border Radius --- */
+    --flf-builder-radius-sm:   var(--flf-builder-p-radius-sm);
+    --flf-builder-radius-md:   var(--flf-builder-p-radius-md);
+    --flf-builder-radius-lg:   var(--flf-builder-p-radius-lg);
+    --flf-builder-radius-xl:   var(--flf-builder-p-radius-xl);
+    --flf-builder-radius-full: var(--flf-builder-p-radius-full);
+
+    /* --- Shadows --- */
+    --flf-builder-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --flf-builder-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --flf-builder-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --flf-builder-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.04);
+
+    /* --- Focus --- */
+    --flf-builder-focus-ring: 0 0 0 3px color-mix(in srgb, var(--flf-builder-color-primary) 15%, transparent);
+
+    /* --- Transitions --- */
+    --flf-builder-transition-fast:   100ms ease;
+    --flf-builder-transition:        150ms ease;
+    --flf-builder-transition-slow:   300ms ease;
+
+    /* --- Z-index --- */
+    --flf-builder-z-base:    0;
+    --flf-builder-z-raised:  10;
+    --flf-builder-z-overlay: 100;
+    --flf-builder-z-modal:   200;
+
+    /* --- Layout --- */
+    --flf-builder-content-max-width: 1200px;
+    --flf-builder-container-padding: var(--flf-builder-p-space-12);
+}
+
+/* ============================================================
+   LAYER 3: Component Tokens (derived from Layer 2)
+   ============================================================ */
+.flf-builder {
+    /* Sidebar */
+    --flf-builder-sidebar-width:          260px;
+    --flf-builder-sidebar-bg:             var(--flf-builder-color-surface);
+    --flf-builder-sidebar-border:         var(--flf-builder-color-border);
+    --flf-builder-sidebar-item-height:    44px;
+    --flf-builder-sidebar-item-radius:    var(--flf-builder-radius-lg);
+    --flf-builder-sidebar-item-active-bg: var(--flf-builder-color-bg);
+    --flf-builder-sidebar-item-active-border: var(--flf-builder-color-primary);
+
+    /* Chapter Header */
+    --flf-builder-header-height:    56px;
+    --flf-builder-header-bg:        var(--flf-builder-color-surface);
+    --flf-builder-header-border:    var(--flf-builder-color-border);
+
+    /* Form */
+    --flf-builder-form-bg:          var(--flf-builder-color-bg);
+    --flf-builder-form-section-gap: var(--flf-builder-space-8);
+    --flf-builder-field-height:     40px;
+    --flf-builder-field-radius:     var(--flf-builder-radius-md);
+    --flf-builder-field-border:     var(--flf-builder-color-border);
+    --flf-builder-field-bg:         var(--flf-builder-color-surface);
+    --flf-builder-label-size:       var(--flf-builder-font-size-sm);
+    --flf-builder-label-weight:     var(--flf-builder-font-weight-medium);
+    --flf-builder-label-color:      var(--flf-builder-color-text-muted);
+
+    /* Icon Badge */
+    --flf-builder-badge-size:       28px;
+    --flf-builder-badge-radius:     var(--flf-builder-radius-md);
+
+    /* Performance Rules */
+    --flf-builder-perf-bg:          var(--flf-builder-color-surface-subtle);
+    --flf-builder-perf-radius:      var(--flf-builder-radius-xl);
+    --flf-builder-perf-border:      var(--flf-builder-color-border-subtle);
+}

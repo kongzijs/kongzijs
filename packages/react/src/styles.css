@@ -1,0 +1,129 @@
+@import "./styles/tokens.css";
+@import "./styles/components/base.css";
+
+/* Utility classes to replicate essential Tailwind functionality */
+.borg-flex { display: flex; }
+.borg-flex-1 { flex: 1 1 0%; }
+.borg-items-center { align-items: center; }
+.borg-items-start { align-items: flex-start; }
+.borg-justify-center { justify-content: center; }
+.borg-justify-between { justify-content: space-between; }
+.borg-flex-col { flex-direction: column; }
+.borg-flex-row { flex-direction: row; }
+.borg-grid { display: grid; }
+.borg-gap-1 { gap: 0.25rem; }
+.borg-gap-2 { gap: 0.5rem; }
+.borg-gap-3 { gap: 0.75rem; }
+.borg-gap-4 { gap: 1rem; }
+.borg-shrink-0 { flex-shrink: 0; }
+.borg-hidden { display: none; }
+.borg-block { display: block; }
+.borg-inline-block { display: inline-block; }
+
+/* Sizing Utilities */
+.borg-h-full { height: 100%; }
+.borg-w-full { width: 100%; }
+.borg-h-9 { height: 2.25rem; }
+.borg-w-9 { width: 2.25rem; }
+.borg-size-2 { width: 0.5rem; height: 0.5rem; }
+.borg-size-3-5 { width: 0.875rem; height: 0.875rem; }
+.borg-size-4 { width: 1rem; height: 1rem; }
+
+/* Positioning Utilities */
+.borg-relative { position: relative; }
+.borg-absolute { position: absolute; }
+.borg-inset-0 { inset: 0; }
+.borg-inset-y-0 { top: 0; bottom: 0; }
+.borg-z-10 { z-index: 10; }
+.borg-z-50 { z-index: 50; }
+
+/* Overflow Utilities */
+.borg-overflow-hidden { overflow: hidden; }
+.borg-overflow-y-auto { overflow-y: auto; }
+.borg-overflow-x-hidden { overflow-x: hidden; }
+
+/* Typography/Spacing Utilities */
+.borg-text-xs { font-size: 0.75rem; }
+.borg-text-sm { font-size: 0.875rem; }
+.borg-font-medium { font-weight: 500; }
+.borg-font-semibold { font-weight: 600; }
+.borg-whitespace-nowrap { white-space: nowrap; }
+.borg-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.borg-ml-auto { margin-left: auto; }
+.borg-mr-2 { margin-right: 0.5rem; }
+.borg-mb-6 { margin-bottom: 1.5rem; }
+.borg-mb-12 { margin-bottom: 3rem; }
+.borg-mt-2 { margin-top: 0.5rem; }
+.borg-pt-4 { padding-top: 1rem; }
+.borg-pb-2 { padding-bottom: 0.5rem; }
+.borg-pb-6 { padding-bottom: 1.5rem; }
+.borg-p-3 { padding: 0.75rem; }
+.borg-p-8 { padding: 2rem; }
+.borg-pl-4 { padding-left: 1rem; }
+.borg-mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Grid & Layout */
+.borg-grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.borg-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.borg-grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (min-width: 768px) {
+    .md\:borg-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .md\:borg-grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.borg-max-w-6xl { max-width: 72rem; }
+.borg-min-h-screen { min-height: 100vh; }
+
+/* Text Utilities */
+.borg-text-lg { font-size: 1.125rem; }
+.borg-text-xl { font-size: 1.25rem; }
+.borg-text-2xl { font-size: 1.5rem; }
+.borg-text-4xl { font-size: 2.25rem; }
+.borg-font-bold { font-weight: 700; }
+.borg-text-center { text-align: center; }
+.borg-tracking-tight { letter-spacing: -0.025em; }
+
+.borg-border { border: 1px solid var(--borg-sys-color-border); }
+.borg-border-b { border-bottom: 1px solid var(--borg-sys-color-border); }
+.borg-border-dashed { border-style: dashed; }
+
+/* Misc Utilities */
+.borg-opacity-50 { opacity: 0.5; }
+.borg-rounded-md { border-radius: var(--borg-p-radius-md); }
+.borg-rounded-full { border-radius: 9999px; }
+.borg-transition-all { transition: all 150ms; }
+.borg-fill-current { fill: currentColor; }
+
+/* Responsive Utilities（lg 断点 ≥1024px，类名用连字符避免 CSS 冒号转义） */
+@media (min-width: 1024px) {
+    .borg-lg-flex { display: flex; }
+    .borg-lg-hidden { display: none; }
+    .borg-lg-items-center { align-items: center; }
+}
+
+.borg-rounded-full { border-radius: 9999px; }
+.borg-whitespace-nowrap { white-space: nowrap; }
+.borg-transition-all { transition: all 150ms; }
+
+@keyframes borg-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.borg-animate-spin {
+    animation: borg-spin 1s linear infinite;
+}
+
+.borg-size-4 { width: 1rem; height: 1rem; }
+.borg-mr-2 { margin-right: 0.5rem; }

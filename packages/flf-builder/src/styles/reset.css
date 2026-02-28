@@ -1,0 +1,63 @@
+/**
+ * FLF Builder — Reset
+ * Minimal scoped reset to ensure consistent rendering within .flf-builder
+ */
+
+.flf-builder *,
+.flf-builder *::before,
+.flf-builder *::after {
+    box-sizing: border-box;
+}
+
+.flf-builder {
+    font-family: var(--flf-builder-font-sans);
+    font-size: var(--flf-builder-font-size-base);
+    line-height: var(--flf-builder-line-height-normal);
+    color: var(--flf-builder-color-text);
+    background: var(--flf-builder-color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flf-builder button {
+    cursor: pointer;
+}
+
+/* Focus ring baseline */
+.flf-builder *:focus-visible {
+    outline: none;
+    box-shadow: var(--flf-builder-focus-ring);
+}
+
+.flf-builder input,
+.flf-builder textarea,
+.flf-builder select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Scrollbar styling */
+.flf-builder ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.flf-builder ::-webkit-scrollbar-track {
+    background: transparent;
+}
+.flf-builder ::-webkit-scrollbar-thumb {
+    background: var(--flf-builder-color-border);
+    border-radius: var(--flf-builder-radius-full);
+}
+.flf-builder ::-webkit-scrollbar-thumb:hover {
+    background: var(--flf-builder-color-text-disabled);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .flf-builder *,
+    .flf-builder *::before,
+    .flf-builder *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

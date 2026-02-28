@@ -12,7 +12,7 @@
             "name": "site",
             "value": "site",
             "description": "Site",
-            "package": "@fluence/web"
+            "package": "@kongzijs/flf-builder-app"
         }
     ]
 }

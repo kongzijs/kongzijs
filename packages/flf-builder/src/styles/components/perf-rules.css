@@ -1,0 +1,340 @@
+/**
+ * FLF Builder — Performance Rules
+ * .flf-builder__perf-rules
+ */
+
+.flf-builder__perf-rules {
+    background: var(--flf-builder-perf-bg);
+    border: 1px solid var(--flf-builder-perf-border);
+    border-radius: var(--flf-builder-perf-radius);
+    padding-block: var(--flf-builder-space-6);
+    padding-inline: var(--flf-builder-space-6);
+}
+
+/* Header */
+.flf-builder__perf-rules-header {
+    display: flex;
+    align-items: center;
+    gap: var(--flf-builder-space-3);
+    margin-block-end: var(--flf-builder-space-6);
+}
+
+.flf-builder__perf-rules-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--flf-builder-radius-md);
+    background: var(--flf-builder-color-surface);
+    border: 1px solid var(--flf-builder-color-border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--flf-builder-color-text-disabled);
+    box-shadow: var(--flf-builder-shadow-xs);
+    flex-shrink: 0;
+}
+
+.flf-builder__perf-rules-title {
+    font-size: var(--flf-builder-font-size-xs);
+    font-weight: var(--flf-builder-font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--flf-builder-color-text-muted);
+    margin: 0;
+}
+
+/* Equal 2-column grid — strict 1fr 1fr, never auto-fit */
+.flf-builder__perf-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--flf-builder-space-5);
+    width: 100%;
+}
+
+/* Threshold column */
+.flf-builder__perf-rules-threshold {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flf-builder-space-4);
+}
+
+.flf-builder__perf-rules-threshold-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--flf-builder-space-2);
+}
+
+.flf-builder__perf-rules-threshold-label {
+    font-size: var(--flf-builder-font-size-xs);
+    font-weight: var(--flf-builder-font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--flf-builder-color-text-disabled);
+}
+
+/* Value badge */
+.flf-builder__perf-rules-value-badge {
+    font-size: var(--flf-builder-font-size-xs);
+    font-weight: var(--flf-builder-font-weight-bold);
+    padding-block: 2px;
+    padding-inline: var(--flf-builder-space-2);
+    border-radius: var(--flf-builder-radius-md);
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.flf-builder__perf-rules-value-badge--learn {
+    color: var(--flf-builder-color-primary);
+    background: color-mix(in srgb, var(--flf-builder-color-primary) 8%, transparent);
+    border-color: color-mix(in srgb, var(--flf-builder-color-primary) 15%, transparent);
+}
+
+.flf-builder__perf-rules-value-badge--quiz {
+    color: color-mix(in srgb, var(--flf-builder-color-secondary) 80%, #333);
+    background: color-mix(in srgb, var(--flf-builder-color-secondary) 12%, transparent);
+    border-color: color-mix(in srgb, var(--flf-builder-color-secondary) 25%, transparent);
+}
+
+/* ─── Radix Slider ───────────────────────────────────── */
+.flf-builder [data-slot="slider"] {
+    position: relative;
+    display: flex;
+    width: 100%;
+    touch-action: none;
+    user-select: none;
+    align-items: center;
+}
+
+.flf-builder [data-slot="slider"][data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.flf-builder [data-slot="slider-track"] {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: var(--flf-builder-color-border);
+    height: 6px;
+}
+
+.flf-builder [data-slot="slider-range"] {
+    position: absolute;
+    height: 100%;
+    background: var(--flf-builder-color-primary);
+    border-radius: 9999px;
+}
+
+.flf-builder [data-slot="slider-thumb"] {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--flf-builder-color-primary);
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
+    cursor: grab;
+    transition: box-shadow 150ms ease, transform 150ms ease;
+    flex-shrink: 0;
+}
+
+.flf-builder [data-slot="slider-thumb"]:hover {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--flf-builder-color-primary) 18%, transparent),
+                0 1px 4px rgb(0 0 0 / 15%);
+}
+
+.flf-builder [data-slot="slider-thumb"]:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+}
+
+.flf-builder [data-slot="slider-thumb"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--flf-builder-color-primary) 25%, transparent);
+}
+
+/* ─── CardToggle ─────────────────────────────────────── */
+.flf-builder [data-slot="card-toggle"] {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid var(--flf-builder-color-border-subtle);
+    background: var(--flf-builder-color-surface);
+    cursor: pointer;
+    user-select: none;
+    transition: background 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+    outline: none;
+}
+
+.flf-builder [data-slot="card-toggle"]:hover {
+    border-color: var(--flf-builder-color-border);
+}
+
+.flf-builder [data-slot="card-toggle"]:focus-visible {
+    box-shadow: var(--flf-builder-focus-ring);
+}
+
+/* ── Checked state (success variant) */
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="success"] {
+    background: color-mix(in srgb, #22c55e 8%, transparent);
+    border-color: color-mix(in srgb, #22c55e 25%, transparent);
+    box-shadow: 0 1px 4px rgb(34 197 94 / 10%);
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="default"] {
+    background: color-mix(in srgb, var(--flf-builder-color-primary) 8%, transparent);
+    border-color: color-mix(in srgb, var(--flf-builder-color-primary) 25%, transparent);
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="warning"] {
+    background: color-mix(in srgb, #f59e0b 8%, transparent);
+    border-color: color-mix(in srgb, #f59e0b 25%, transparent);
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="destructive"] {
+    background: color-mix(in srgb, #ef4444 8%, transparent);
+    border-color: color-mix(in srgb, #ef4444 25%, transparent);
+}
+
+.flf-builder [data-slot="card-toggle"][data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Icon box */
+.flf-builder [data-slot="card-toggle-icon"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+    background: var(--flf-builder-color-border-subtle);
+    color: var(--flf-builder-color-text-muted);
+    transition: background 150ms ease, color 150ms ease;
+}
+
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="success"]
+    [data-slot="card-toggle-icon"] {
+    background: #22c55e;
+    color: #ffffff;
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="default"]
+    [data-slot="card-toggle-icon"] {
+    background: var(--flf-builder-color-primary);
+    color: #ffffff;
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="warning"]
+    [data-slot="card-toggle-icon"] {
+    background: #f59e0b;
+    color: #ffffff;
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="destructive"]
+    [data-slot="card-toggle-icon"] {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+/* Text content */
+.flf-builder [data-slot="card-toggle-content"] {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.flf-builder [data-slot="card-toggle-title"] {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--flf-builder-color-text);
+    line-height: 1.2;
+    display: block;
+}
+
+.flf-builder [data-slot="card-toggle-desc"] {
+    font-size: 0.6875rem;
+    color: var(--flf-builder-color-text-muted);
+    line-height: 1.4;
+    display: block;
+}
+
+/* Toggle pill */
+.flf-builder [data-slot="card-toggle-switch"] {
+    flex-shrink: 0;
+    position: relative;
+    width: 36px;
+    height: 20px;
+    border-radius: 9999px;
+    background: var(--flf-builder-color-border);
+    transition: background 150ms ease;
+}
+
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="success"]
+    [data-slot="card-toggle-switch"] {
+    background: #22c55e;
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="default"]
+    [data-slot="card-toggle-switch"] {
+    background: var(--flf-builder-color-primary);
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="warning"]
+    [data-slot="card-toggle-switch"] {
+    background: #f59e0b;
+}
+.flf-builder [data-slot="card-toggle"][data-state="checked"][data-variant="destructive"]
+    [data-slot="card-toggle-switch"] {
+    background: #ef4444;
+}
+
+.flf-builder [data-slot="card-toggle-thumb"] {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 15%);
+    transition: transform 150ms ease;
+}
+
+.flf-builder [data-slot="card-toggle"][data-state="checked"]
+    [data-slot="card-toggle-thumb"] {
+    transform: translateX(16px);
+}
+
+/* Number input with icon */
+.flf-builder__perf-rules-number-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--flf-builder-space-3);
+}
+
+.flf-builder__perf-rules-number-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--flf-builder-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: color-mix(in srgb, var(--flf-builder-color-secondary) 12%, transparent);
+    color: color-mix(in srgb, var(--flf-builder-color-secondary) 80%, #333);
+}
+
+/* Helper text */
+.flf-builder__perf-rules-help {
+    font-size: var(--flf-builder-font-size-xs);
+    color: var(--flf-builder-color-text-disabled);
+    line-height: var(--flf-builder-line-height-relaxed);
+    margin: 0;
+}
+
+/* Toggles column */
+.flf-builder__perf-rules-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flf-builder-space-4);
+}

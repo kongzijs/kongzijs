@@ -1,0 +1,137 @@
+/**
+ * FLF Builder — Chapter Header
+ * .flf-builder__chapter-header
+ */
+
+.flf-builder__chapter-header {
+    height: var(--flf-builder-header-height);
+    padding-block: 0;
+    padding-inline: var(--flf-builder-space-6);
+    background: var(--flf-builder-header-bg);
+    border-block-end: 1px solid var(--flf-builder-header-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--flf-builder-space-4);
+    flex-shrink: 0;
+}
+
+/* Left: icon + title input */
+.flf-builder__chapter-header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--flf-builder-space-3);
+    flex: 1;
+    min-width: 0;
+}
+
+/* Type icon badge */
+.flf-builder__chapter-header-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--flf-builder-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid transparent;
+    transition: background var(--flf-builder-transition);
+}
+
+.flf-builder__chapter-header-icon--learn {
+    background: color-mix(in srgb, var(--flf-builder-color-primary) 10%, transparent);
+    color: var(--flf-builder-color-primary);
+    border-color: color-mix(in srgb, var(--flf-builder-color-primary) 20%, transparent);
+}
+
+.flf-builder__chapter-header-icon--quiz {
+    background: color-mix(in srgb, var(--flf-builder-color-secondary) 15%, transparent);
+    color: color-mix(in srgb, var(--flf-builder-color-secondary) 80%, #333);
+    border-color: color-mix(in srgb, var(--flf-builder-color-secondary) 30%, transparent);
+}
+
+/* Title input — transparent, inline editing style */
+.flf-builder__chapter-header-title {
+    flex: 1;
+    min-width: 0;
+    font-size: var(--flf-builder-font-size-lg);
+    font-weight: var(--flf-builder-font-weight-bold);
+    color: var(--flf-builder-color-text);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--flf-builder-radius-md);
+    padding-block: var(--flf-builder-space-1);
+    padding-inline: var(--flf-builder-space-2);
+    outline: none;
+    transition: border-color var(--flf-builder-transition),
+                background var(--flf-builder-transition);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: var(--flf-builder-line-height-tight);
+}
+
+.flf-builder__chapter-header-title::placeholder {
+    color: var(--flf-builder-color-text-disabled);
+    font-weight: var(--flf-builder-font-weight-normal);
+}
+
+.flf-builder__chapter-header-title:hover {
+    background: var(--flf-builder-color-surface-subtle);
+    border-color: var(--flf-builder-color-border-subtle);
+}
+
+.flf-builder__chapter-header-title:focus {
+    background: var(--flf-builder-color-surface-subtle);
+    border-color: var(--flf-builder-color-primary);
+    box-shadow: var(--flf-builder-focus-ring);
+}
+
+/* Right: type badge + save button */
+.flf-builder__chapter-header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--flf-builder-space-3);
+    flex-shrink: 0;
+}
+
+/* Type badge pill */
+.flf-builder__chapter-header-badge {
+    display: none;
+    align-items: center;
+    gap: var(--flf-builder-space-1);
+    padding-block: var(--flf-builder-space-1);
+    padding-inline: var(--flf-builder-space-3);
+    border-radius: var(--flf-builder-radius-full);
+    font-size: var(--flf-builder-font-size-xs);
+    font-weight: var(--flf-builder-font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 1px solid transparent;
+}
+
+@container (min-width: 600px) {
+    .flf-builder__chapter-header-badge {
+        display: flex;
+    }
+}
+
+.flf-builder__chapter-header-badge--learn {
+    background: color-mix(in srgb, var(--flf-builder-color-primary) 10%, transparent);
+    color: var(--flf-builder-color-primary);
+    border-color: color-mix(in srgb, var(--flf-builder-color-primary) 20%, transparent);
+}
+
+.flf-builder__chapter-header-badge--quiz {
+    background: color-mix(in srgb, var(--flf-builder-color-secondary) 15%, transparent);
+    color: color-mix(in srgb, var(--flf-builder-color-secondary) 80%, #333);
+    border-color: color-mix(in srgb, var(--flf-builder-color-secondary) 30%, transparent);
+}
+
+/* Vertical divider */
+.flf-builder__chapter-header-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--flf-builder-color-border);
+    flex-shrink: 0;
+}

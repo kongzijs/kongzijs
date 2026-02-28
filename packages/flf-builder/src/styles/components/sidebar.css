@@ -1,0 +1,101 @@
+/**
+ * FLF Builder — Sidebar Item
+ * .flf-builder__sidebar-item
+ */
+
+.flf-builder__sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--flf-builder-space-3);
+    padding-block: var(--flf-builder-space-2);
+    padding-inline: var(--flf-builder-space-3);
+    height: var(--flf-builder-sidebar-item-height);
+    border-radius: var(--flf-builder-sidebar-item-radius);
+    cursor: pointer;
+    transition: background var(--flf-builder-transition),
+                color var(--flf-builder-transition),
+                box-shadow var(--flf-builder-transition);
+    color: var(--flf-builder-color-text-muted);
+    border: 1px solid transparent;
+    position: relative;
+    user-select: none;
+}
+
+.flf-builder__sidebar-item:hover {
+    background: var(--flf-builder-color-surface-subtle);
+    color: var(--flf-builder-color-text);
+    border-color: var(--flf-builder-color-border-subtle);
+}
+
+.flf-builder__sidebar-item--active {
+    background: var(--flf-builder-sidebar-item-active-bg);
+    color: var(--flf-builder-color-text);
+    border-color: var(--flf-builder-color-border);
+    box-shadow: var(--flf-builder-shadow-sm);
+    border-inline-start: 3px solid var(--flf-builder-sidebar-item-active-border);
+}
+
+.flf-builder__sidebar-item--active:hover {
+    background: var(--flf-builder-sidebar-item-active-bg);
+}
+
+/* Icon badge */
+.flf-builder__sidebar-item-icon {
+    width: var(--flf-builder-badge-size);
+    height: var(--flf-builder-badge-size);
+    border-radius: var(--flf-builder-badge-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background var(--flf-builder-transition);
+    background: var(--flf-builder-color-surface-subtle);
+}
+
+.flf-builder__sidebar-item--active .flf-builder__sidebar-item-icon {
+    background: var(--flf-builder-color-surface);
+    box-shadow: var(--flf-builder-shadow-xs);
+}
+
+/* Icon colors by type */
+.flf-builder__sidebar-item--learn .flf-builder__sidebar-item-icon {
+    color: var(--flf-builder-color-primary);
+}
+
+.flf-builder__sidebar-item--quiz .flf-builder__sidebar-item-icon {
+    color: var(--flf-builder-color-secondary);
+}
+
+/* Title */
+.flf-builder__sidebar-item-title {
+    flex: 1;
+    min-width: 0;
+    font-size: var(--flf-builder-font-size-sm);
+    font-weight: var(--flf-builder-font-weight-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: var(--flf-builder-line-height-tight);
+}
+
+/* Actions (show on hover) */
+.flf-builder__sidebar-item-actions {
+    display: flex;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity var(--flf-builder-transition);
+    flex-shrink: 0;
+}
+
+.flf-builder__sidebar-item:hover .flf-builder__sidebar-item-actions {
+    opacity: 1;
+}
+
+/* Settings item (special, always visible) */
+.flf-builder__sidebar-item--settings {
+    color: var(--flf-builder-color-text-muted);
+}
+
+.flf-builder__sidebar-item--settings.flf-builder__sidebar-item--active {
+    color: var(--flf-builder-color-text);
+}

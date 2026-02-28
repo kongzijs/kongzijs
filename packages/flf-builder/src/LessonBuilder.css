@@ -1,0 +1,89 @@
+/* Lesson Builder 2-Pane Split View Styles (RFC 0024) */
+ 
+.lesson-builder-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-background);
+}
+ 
+/* Master Sidebar (Left) */
+.active-item {
+    border-left: 4px solid var(--color-primary);
+    border-radius: 0.75rem;
+    box-shadow: none !important;
+}
+ 
+.quiz-editor-container {
+    height: 100%;
+    background: var(--color-card);
+}
+ 
+.quiz-editor-container :global(.qe-question-item) {
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+ 
+/* Custom transitions and animations */
+.animate-in {
+    animation-duration: 400ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: forwards;
+}
+ 
+@keyframes slide-in-bottom {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+ 
+@keyframes slide-in-right {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+ 
+.slide-in-from-bottom-2 {
+    animation-name: slide-in-bottom;
+}
+ 
+.slide-in-from-right-4 {
+    animation-name: slide-in-right;
+}
+ 
+/* Global resets for the builder environment */
+.lesson-builder-container * {
+    box-sizing: border-box;
+}
+ 
+/* Scrollbar styling for a cleaner look */
+.flex-1::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+.flex-1::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+.flex-1::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 10px;
+}
+ 
+.flex-1::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted-foreground);
+}

@@ -1,0 +1,122 @@
+/**
+ * @borgtj/react Design System — Token Definitions
+ * 
+ * Three-layer token model:
+ *   Layer 1: Primitive tokens (raw values, internal use only)
+ *   Layer 2: Semantic tokens (PUBLIC API — consumers override these to retheme)
+ *   Layer 3: Component tokens (component-specific variables)
+ *
+ * All variables are prefixed with --borg-
+ */
+
+:root {
+    /* ============================================================
+       LAYER 1: Primitive Tokens (Palettes)
+       ============================================================ */
+    --borg-p-white:           #ffffff;
+    --borg-p-black:           #000000;
+    
+    /* Blue Palette (Primary) */
+    --borg-p-blue-50:         #eff6ff;
+    --borg-p-blue-100:        #dbeafe;
+    --borg-p-blue-200:        #bfdbfe;
+    --borg-p-blue-300:        #93c5fd;
+    --borg-p-blue-400:        #60a5fa;
+    --borg-p-blue-500:        #3971b8; /* Fluence Blue */
+    --borg-p-blue-600:        #2563eb;
+    --borg-p-blue-700:        #1d4ed8;
+    --borg-p-blue-800:        #1e40af;
+    --borg-p-blue-900:        #1e3a8a;
+
+    /* Green Palette (Secondary) */
+    --borg-p-green-50:        #f7f9ef;
+    --borg-p-green-100:       #edf2de;
+    --borg-p-green-200:       #dbe5bd;
+    --borg-p-green-300:       #c8d69b; /* Fluence Secondary */
+    --borg-p-green-400:       #b0c175;
+    --borg-p-green-500:       #8ba144;
+    --borg-p-green-600:       #6b7d34;
+    --borg-p-green-700:       #515e27;
+    --borg-p-green-800:       #3a431c;
+    --borg-p-green-900:       #2a3010;
+
+    /* Gray Palette (Neutral) */
+    --borg-p-slate-50:        #f8fafc;
+    --borg-p-slate-100:       #f1f5f9;
+    --borg-p-slate-200:       #e2e8f0;
+    --borg-p-slate-300:       #cbd5e1;
+    --borg-p-slate-400:       #94a3b8;
+    --borg-p-slate-500:       #64748b;
+    --borg-p-slate-600:       #475569;
+    --borg-p-slate-700:       #334155;
+    --borg-p-slate-800:       #1e293b;
+    --borg-p-slate-900:       #0f172a;
+
+    /* Semantic Red (Destructive) */
+    --borg-p-red-500:         #ef4444;
+    --borg-p-red-600:         #dc2626;
+
+    /* Spacing & Borders */
+    --borg-p-space-1:         0.25rem;
+    --borg-p-space-2:         0.5rem;
+    --borg-p-space-4:         1rem;
+    --borg-p-space-6:         1.5rem;
+    --borg-p-radius-sm:       0.125rem;
+    --borg-p-radius-md:       0.375rem;
+    --borg-p-radius-lg:       0.5rem;
+    --borg-p-radius-xl:       0.75rem;
+    --borg-p-radius-2xl:      1rem;
+
+    /* ============================================================
+       LAYER 2: Semantic Tokens (PUBLIC API)
+       ============================================================ */
+    --borg-sys-color-primary:      var(--borg-p-blue-500);
+    --borg-sys-color-primary-fg:   var(--borg-p-white);
+    
+    --borg-sys-color-secondary:    var(--borg-p-green-300);
+    --borg-sys-color-secondary-fg: var(--borg-p-green-900);
+
+    --borg-sys-color-bg:           #fbfcef; /* Fluence BG */
+    --borg-sys-color-fg:           #343b1b; /* Fluence FG */
+
+    --borg-sys-color-card:         var(--borg-p-white);
+    --borg-sys-color-card-fg:      var(--borg-sys-color-fg);
+
+    --borg-sys-color-popover:      var(--borg-p-white);
+    --borg-sys-color-popover-fg:   var(--borg-sys-color-fg);
+
+    --borg-sys-color-muted:        #f0f1e5;
+    --borg-sys-color-muted-fg:     #6b7040;
+
+    --borg-sys-color-accent:       #f6e6a5;
+    --borg-sys-color-accent-fg:    #5c4d1a;
+
+    --borg-sys-color-destructive:    var(--borg-p-red-600);
+    --borg-sys-color-destructive-fg: var(--borg-p-white);
+
+    --borg-sys-color-border:       var(--borg-sys-color-fg);
+    --borg-sys-color-input:        #d4d6c8;
+    --borg-sys-color-ring:         var(--borg-sys-color-primary);
+
+    /* Typography */
+    --borg-sys-font-display:       "Quicksand", sans-serif;
+    --borg-sys-font-body:          "Nunito", sans-serif;
+
+    /* Shadows */
+    --borg-sys-shadow-sm:  0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --borg-sys-shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --borg-sys-shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Transitions */
+    --borg-sys-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode overrides (optional, default to light) */
+.dark {
+    --borg-sys-color-bg:           #2d2f1f;
+    --borg-sys-color-fg:           #e8ead8;
+    --borg-sys-color-card:         #343b1b;
+    --borg-sys-color-muted:        #343b1b;
+    --borg-sys-color-muted-fg:     #e8ead8;
+    --borg-sys-color-border:       #e8ead8;
+}

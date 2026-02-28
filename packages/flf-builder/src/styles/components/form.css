@@ -1,0 +1,384 @@
+/**
+ * FLF Builder — Settings Form
+ * .flf-builder__form
+ */
+
+/* Form container */
+.flf-builder__form {
+    padding-block: 0;
+    padding-inline: 0; /* Let LessonBuilder handle padding */
+    width: 100%;
+    margin-inline: 0;
+    margin-block: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--flf-builder-space-6);
+    animation: flf-slide-up var(--flf-builder-transition-slow) both;
+}
+
+/* Form card */
+.flf-builder__form-card {
+    background: var(--flf-builder-color-surface);
+    border: 1px solid var(--flf-builder-color-border);
+    border-radius: var(--flf-builder-radius-xl);
+    box-shadow: var(--flf-builder-shadow-sm);
+    overflow: hidden;
+}
+
+/* Card header */
+.flf-builder__form-card-header {
+    padding-block-start: var(--flf-builder-space-6);
+    padding-inline: var(--flf-builder-space-6);
+    padding-block-end: var(--flf-builder-space-5);
+    border-block-end: 1px solid var(--flf-builder-color-border-subtle);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--flf-builder-space-4);
+}
+
+.flf-builder__form-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--flf-builder-radius-lg);
+    background: color-mix(in srgb, var(--flf-builder-color-primary) 10%, transparent);
+    color: var(--flf-builder-color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.flf-builder__form-card-titles {
+    flex: 1;
+    min-width: 0;
+}
+
+.flf-builder__form-card-title {
+    font-size: var(--flf-builder-font-size-lg);
+    font-weight: var(--flf-builder-font-weight-bold);
+    color: var(--flf-builder-color-text);
+    line-height: var(--flf-builder-line-height-tight);
+    margin: 0;
+    margin-block-end: var(--flf-builder-space-1);
+}
+
+.flf-builder__form-card-desc {
+    font-size: var(--flf-builder-font-size-sm);
+    color: var(--flf-builder-color-text-muted);
+    line-height: var(--flf-builder-line-height-normal);
+    margin: 0;
+}
+
+/* Card body */
+.flf-builder__form-card-body {
+    padding-block: var(--flf-builder-space-6);
+    padding-inline: var(--flf-builder-space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--flf-builder-space-6);
+}
+
+/* Section */
+.flf-builder__form-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flf-builder-space-5);
+}
+
+/* Section header */
+.flf-builder__form-section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--flf-builder-space-2);
+    font-size: var(--flf-builder-font-size-xs);
+    font-weight: var(--flf-builder-font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--flf-builder-color-text-muted);
+    padding-block-end: var(--flf-builder-space-2);
+    border-block-end: 1px solid var(--flf-builder-color-border-subtle);
+}
+
+/* Section divider */
+.flf-builder__form-divider {
+    height: 1px;
+    background: var(--flf-builder-color-border-subtle);
+    border: none;
+    margin: 0;
+}
+
+/* Grid layout for fields is now handled by .flf-builder-grid in objects/grid.css */
+
+/* Field */
+.flf-builder__form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flf-builder-space-2);
+}
+
+/* Label */
+.flf-builder__form-label {
+    font-size: var(--flf-builder-label-size);
+    font-weight: var(--flf-builder-label-weight);
+    color: var(--flf-builder-label-color);
+    line-height: var(--flf-builder-line-height-tight);
+    display: block;
+}
+
+/* Input wrapper (for suffix/prefix) */
+.flf-builder__form-input-wrap {
+    position: relative;
+}
+
+.flf-builder__form-input-suffix {
+    position: absolute;
+    inset-inline-end: var(--flf-builder-space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--flf-builder-font-size-xs);
+    color: var(--flf-builder-color-text-disabled);
+    pointer-events: none;
+    font-weight: var(--flf-builder-font-weight-medium);
+}
+
+/* Hide spin buttons for number inputs within the builder to avoid overlap with units */
+.flf-builder input[type="number"]::-webkit-outer-spin-button,
+.flf-builder input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.flf-builder input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Ensure inputs with suffixes have enough right padding */
+.flf-builder__form-input-wrap [data-slot="input"] {
+    padding-inline-end: var(--flf-builder-space-12) !important;
+}
+
+/* =================================================================
+   FORM INPUT & TEXTAREA — scoped to .flf-builder
+   Targets the actual rendered DOM elements from @borgtj/react
+   via data-slot attribute selectors for guaranteed specificity.
+   ================================================================= */
+
+/* Base: All inputs and textareas inside .flf-builder scope */
+.flf-builder [data-slot="input"],
+.flf-builder [data-slot="textarea"],
+.flf-builder [data-slot="select-trigger"] {
+    width: 100%;
+    border-radius: var(--flf-builder-field-radius);
+    border: 1px solid var(--flf-builder-field-border);
+    background-color: var(--flf-builder-field-bg);
+    font-size: var(--flf-builder-font-size-base);
+    font-family: var(--flf-builder-font-sans);
+    color: var(--flf-builder-color-text);
+    box-shadow: var(--flf-builder-shadow-xs);
+    transition:
+        border-color var(--flf-builder-transition),
+        box-shadow var(--flf-builder-transition),
+        background-color var(--flf-builder-transition);
+    outline: none;
+    padding-inline: var(--flf-builder-space-3);
+}
+
+/* Height for single-line inputs */
+.flf-builder [data-slot="input"],
+.flf-builder [data-slot="select-trigger"] {
+    height: var(--flf-builder-field-height);
+    display: flex;
+    align-items: center;
+}
+
+/* Textarea */
+.flf-builder [data-slot="textarea"] {
+    height: auto;
+    min-height: 100px;
+    padding-block: var(--flf-builder-space-3);
+    resize: vertical;
+    line-height: var(--flf-builder-line-height-relaxed);
+    display: block;
+}
+
+/* Placeholder */
+.flf-builder [data-slot="input"]::placeholder,
+.flf-builder [data-slot="textarea"]::placeholder {
+    color: var(--flf-builder-color-text-disabled);
+    font-weight: var(--flf-builder-font-weight-normal);
+    opacity: 1;
+}
+
+/* Focus state — premium ring */
+.flf-builder [data-slot="input"]:focus,
+.flf-builder [data-slot="input"]:focus-visible,
+.flf-builder [data-slot="textarea"]:focus,
+.flf-builder [data-slot="textarea"]:focus-visible {
+    border-color: var(--flf-builder-color-primary);
+    background-color: var(--flf-builder-color-surface);
+    box-shadow: var(--flf-builder-focus-ring);
+    outline: none;
+}
+
+/* Disabled */
+.flf-builder [data-slot="input"]:disabled,
+.flf-builder [data-slot="textarea"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--flf-builder-color-surface-subtle);
+    box-shadow: none;
+}
+
+/* Select (combobox trigger) */
+.flf-builder [data-slot="select-trigger"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* chevron icon inside trigger */
+.flf-builder [data-slot="select-trigger"] svg {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.5;
+}
+
+/* Select focus / open state */
+.flf-builder [data-slot="select-trigger"]:focus,
+.flf-builder [data-slot="select-trigger"][data-state="open"] {
+    border-color: var(--flf-builder-color-primary);
+    box-shadow: var(--flf-builder-focus-ring);
+    outline: none;
+}
+
+
+/* --- Select Dropdown Panel --- */
+.flf-builder [data-slot="select-content"] {
+    position: relative;
+    z-index: 50;
+    min-width: 8rem;
+    overflow: hidden;
+    border-radius: var(--flf-builder-radius-md);
+    border: 1px solid var(--flf-builder-color-border);
+    background-color: var(--flf-builder-color-surface);
+    color: var(--flf-builder-color-text);
+    box-shadow: var(--flf-builder-shadow-md);
+    /* Radix open/close animations */
+    animation-duration: 150ms;
+    animation-timing-function: ease;
+}
+
+.flf-builder [data-slot="select-content"][data-state="open"] {
+    animation-name: flf-select-in;
+}
+
+.flf-builder [data-slot="select-content"][data-state="closed"] {
+    animation-name: flf-select-out;
+}
+
+@keyframes flf-select-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes flf-select-out {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.96); }
+}
+
+/* Viewport (scrollable list area) */
+.flf-builder [data-slot="select-viewport"] {
+    padding: 0.25rem;
+    max-height: var(--radix-select-content-available-height, 300px);
+    overflow-y: auto;
+    width: var(--radix-select-trigger-width, auto);
+    min-width: var(--radix-select-trigger-width, 8rem);
+}
+
+/* Select Item */
+.flf-builder [data-slot="select-item"] {
+    position: relative;
+    display: flex;
+    width: 100%;
+    cursor: default;
+    user-select: none;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--flf-builder-radius-sm);
+    padding-block: 0.5rem;
+    padding-inline-start: 0.625rem;
+    padding-inline-end: 2rem;
+    font-size: var(--flf-builder-font-size-sm);
+    color: var(--flf-builder-color-text);
+    outline: none;
+    transition: background-color var(--flf-builder-transition-fast);
+}
+
+.flf-builder [data-slot="select-item"]:hover,
+.flf-builder [data-slot="select-item"][data-highlighted] {
+    background-color: var(--flf-builder-color-surface-subtle);
+    color: var(--flf-builder-color-text);
+}
+
+.flf-builder [data-slot="select-item"][data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Item checkmark indicator */
+.flf-builder [data-slot="select-item-indicator"] {
+    position: absolute;
+    right: 0.5rem;
+    display: flex;
+    width: 0.875rem;
+    height: 0.875rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--flf-builder-color-primary);
+}
+
+/* Select Label */
+.flf-builder [data-slot="select-label"] {
+    padding-block: 0.375rem;
+    padding-inline: 0.5rem;
+    font-size: var(--flf-builder-font-size-xs);
+    font-weight: var(--flf-builder-font-weight-semibold);
+    color: var(--flf-builder-color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Select Separator */
+.flf-builder [data-slot="select-separator"] {
+    height: 1px;
+    background-color: var(--flf-builder-color-border-subtle);
+    margin-inline: -0.25rem;
+    margin-block: 0.25rem;
+    pointer-events: none;
+}
+
+
+/* --- Context modifiers --- */
+
+/* Markdown content editor: tall monospace */
+.flf-builder [data-slot="textarea"].flf-builder-textarea--markdown {
+    min-height: 400px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* Quiz editor wrapper */
+.flf-builder__quiz-wrap {
+    padding: 0;
+    overflow: hidden;
+    border-radius: var(--flf-builder-radius-lg);
+    border: 1px solid var(--flf-builder-color-border);
+    background-color: var(--flf-builder-color-surface);
+}
