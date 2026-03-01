@@ -35,7 +35,11 @@ export function GuideTracking() {
 
             <div className="guide-cta">
                 <p>Ready to start building?</p>
-                <Link to="/" className="btn btn-primary">
+                <Link
+                    to="/"
+                    state={{ scrollTo: "get-started" }}
+                    className="btn btn-primary"
+                >
                     View the Demo
                 </Link>
             </div>
