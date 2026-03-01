@@ -1,7 +1,26 @@
 {
     "name": "@kongzijs/flf-core",
     "version": "0.1.0",
-    "private": true,
+    "description": "Core FLF (Fluence Lesson Format) specification implementation — types, validators, and React Flow transformers.",
+    "license": "MIT",
+    "author": "KongziJS Contributors",
+    "keywords": [
+        "flf",
+        "fluence",
+        "lesson",
+        "e-learning",
+        "course",
+        "lms",
+        "kongzijs"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kongzijs/kongzijs.git",
+        "directory": "packages/flf-core"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.mjs",

@@ -1,7 +1,25 @@
 {
     "name": "@kongzijs/flf-i18n",
     "version": "0.1.0",
-    "private": true,
+    "description": "Internationalisation (i18n) utilities and locale definitions for FLF-based KongziJS applications.",
+    "license": "MIT",
+    "author": "KongziJS Contributors",
+    "keywords": [
+        "flf",
+        "fluence",
+        "i18n",
+        "internationalisation",
+        "locale",
+        "kongzijs"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kongzijs/kongzijs.git",
+        "directory": "packages/flf-i18n"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.mjs",

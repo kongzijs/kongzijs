@@ -1,7 +1,25 @@
 {
     "name": "@kongzijs/flf-editor",
     "version": "0.1.0",
-    "private": true,
+    "description": "Monaco-based code editor component for editing FLF JSON and Quiz DSL within KongziJS applications.",
+    "license": "MIT",
+    "author": "KongziJS Contributors",
+    "keywords": [
+        "flf",
+        "fluence",
+        "editor",
+        "monaco",
+        "code",
+        "kongzijs"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kongzijs/kongzijs.git",
+        "directory": "packages/flf-editor"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.mjs",
