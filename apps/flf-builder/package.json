@@ -12,7 +12,7 @@
         "test:e2e": "playwright test"
     },
     "dependencies": {
-        "@borgtj/react": "workspace:*",
+        "@borgtj/react": "^0.1.0",
         "@kongzijs/flf-builder": "workspace:*",
         "@kongzijs/flf-core": "workspace:*",
         "@kongzijs/flf-editor": "workspace:*",

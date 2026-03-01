@@ -10,12 +10,14 @@
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
     },
     "dependencies": {
-        "@kongzijs/flf-core": "workspace:*",
         "@kongzijs/flf-builder": "workspace:*",
+        "@kongzijs/flf-core": "workspace:*",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.487.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "sonner": "^2.0.3",
-        "lucide-react": "^0.487.0"
+        "tailwind-merge": "^3.5.0"
     },
     "devDependencies": {
         "@types/react": "^19.2.7",

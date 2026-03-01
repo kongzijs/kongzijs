@@ -5,11 +5,7 @@ import { resolve } from "path";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-    resolve: {
-        alias: {
-            "@borgtj/react": resolve(__dirname, "../react/src/index.ts"),
-        },
-    },
+    resolve: {},
     plugins: [
         react(),
         dts({

@@ -23,7 +23,7 @@
     },
     "dependencies": {
         "@kongzijs/flf-core": "workspace:*",
-        "@borgtj/react": "workspace:*",
+        "@borgtj/react": "^0.1.0",
         "@xyflow/react": "^12.10.0",
         "lucide-react": "^0.487.0",
         "sonner": "^2.0.3"

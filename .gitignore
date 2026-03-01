@@ -96,3 +96,10 @@ Desktop.ini
 
 .nx/cache
 .nx/workspace-data
+
+# Turborepo
+.turbo
+**/.turbo/
+
+# Security logs
+logs/

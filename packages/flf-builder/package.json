@@ -24,7 +24,7 @@
         "dev": "vite"
     },
     "dependencies": {
-        "@borgtj/react": "workspace:*",
+        "@borgtj/react": "^0.1.0",
         "@kongzijs/flf-core": "workspace:*",
         "@kongzijs/markdown-editor": "workspace:*",
         "@quizerjs/core": "^0.0.10",

@@ -8,7 +8,7 @@
 [2K[1Grendering chunks (1)...[2K[1G[32m
 [36m[vite:dts][32m Start generate declaration files...[39m
 [2K[1Gcomputing gzip size (0)...[2K[1Gcomputing gzip size (1)...[2K[1G[2mdist/[22m[36mindex.mjs  [39m[1m[2m28.05 kB[22m[1m[22m[2m │ gzip: 8.99 kB[22m[2m │ map: 46.18 kB[22m
-[32m[36m[vite:dts][32m Declaration files built in 965ms.
+[32m[36m[vite:dts][32m Declaration files built in 1022ms.
 [39m
 [2K[1Grendering chunks (1)...[2K[1G[2K[1Gcomputing gzip size (1)...[2K[1G[2mdist/[22m[36mindex.cjs  [39m[1m[2m24.12 kB[22m[1m[22m[2m │ gzip: 8.68 kB[22m[2m │ map: 43.06 kB[22m
-[32m✓ built in 1.14s[39m
+[32m✓ built in 1.17s[39m

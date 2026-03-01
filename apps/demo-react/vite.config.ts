@@ -17,10 +17,6 @@ export default defineConfig({
                 __dirname,
                 "../../packages/lesson-builder/src",
             ),
-            "@borgtj/react": path.resolve(
-                __dirname,
-                "../../packages/react/src",
-            ),
         },
     },
     server: {

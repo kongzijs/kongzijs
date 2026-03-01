@@ -63,11 +63,11 @@
 - **示例**: FLF 示例数据生成器
 
 ```typescript
-import { 
-  FLFManifest, 
-  validateFLFManifest, 
-  FLFTransformer,
-  createExampleFLF 
+import {
+    FLFManifest,
+    validateFLFManifest,
+    FLFTransformer,
+    createExampleFLF,
 } from "@kongzijs/flf-core";
 
 // 创建 FLF 清单
@@ -76,7 +76,7 @@ const manifest: FLFManifest = createExampleFLF();
 // 验证 FLF
 const result = validateFLFManifest(manifest);
 if (result.valid) {
-  console.log("FLF 有效！");
+    console.log("FLF 有效！");
 }
 
 // 转换为 React Flow 格式
@@ -106,10 +106,6 @@ import { LessonBuilder } from "@kongzijs/lesson-builder";
 />
 ```
 
-### `@kongzijs/ui`
-
-共享 UI 组件库，基于 Radix UI 和 Tailwind CSS 构建。
-
 ## 🎓 FLF 格式
 
 **FLF (Fluence Lesson Format)** 是本项目的核心数据格式。所有课程内容都基于 FLF 格式定义。
@@ -125,30 +121,30 @@ import { LessonBuilder } from "@kongzijs/lesson-builder";
 
 ```json
 {
-  "flf_version": "1.0",
-  "lesson_id": "L-101",
-  "settings": {
-    "total_credits": 50,
-    "difficulty": "intermediate"
-  },
-  "assets_manifest": [
-    {
-      "id": "video_1",
-      "type": "video",
-      "src": "asset://550e8400-e29b-41d4-a716-446655440000"
-    }
-  ],
-  "flow_nodes": [
-    {
-      "id": "node_1",
-      "type": "learn",
-      "data": {
-        "markdown": "# Lesson Content",
-        "media": ["video_1"]
-      }
-    }
-  ],
-  "flow_edges": []
+    "flf_version": "1.0",
+    "lesson_id": "L-101",
+    "settings": {
+        "total_credits": 50,
+        "difficulty": "intermediate"
+    },
+    "assets_manifest": [
+        {
+            "id": "video_1",
+            "type": "video",
+            "src": "asset://550e8400-e29b-41d4-a716-446655440000"
+        }
+    ],
+    "flow_nodes": [
+        {
+            "id": "node_1",
+            "type": "learn",
+            "data": {
+                "markdown": "# Lesson Content",
+                "media": ["video_1"]
+            }
+        }
+    ],
+    "flow_edges": []
 }
 ```
 
@@ -191,11 +187,11 @@ pnpm dev
 ### 使用 FLF Core
 
 ```typescript
-import { 
-  FLFManifest, 
-  validateFLFManifest,
-  parseAssetSrc,
-  createExampleFLF 
+import {
+    FLFManifest,
+    validateFLFManifest,
+    parseAssetSrc,
+    createExampleFLF,
 } from "@kongzijs/flf-core";
 
 // 创建示例 FLF
@@ -298,12 +294,12 @@ kongzijs/
 
 ## 📜 可用脚本
 
-| 脚本         | 描述                    |
-| -------------- | ------------------------------ |
-| `pnpm dev`     | 启动所有包开发模式             |
-| `pnpm build`   | 构建所有包                     |
-| `pnpm lint`    | 检查所有包代码                 |
-| `pnpm test`    | 运行所有包测试                 |
+| 脚本         | 描述               |
+| ------------ | ------------------ |
+| `pnpm dev`   | 启动所有包开发模式 |
+| `pnpm build` | 构建所有包         |
+| `pnpm lint`  | 检查所有包代码     |
+| `pnpm test`  | 运行所有包测试     |
 
 ## 📚 文档
 
@@ -336,26 +332,26 @@ kongzijs/
 
 1. **创建功能分支**
 
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
 
 2. **进行更改**
-   - 遵循现有代码风格
-   - 提交前运行 `pnpm lint`
-   - 编写清晰的提交信息
-   - 为新功能添加测试
+    - 遵循现有代码风格
+    - 提交前运行 `pnpm lint`
+    - 编写清晰的提交信息
+    - 为新功能添加测试
 
 3. **测试更改**
-   - 确保所有包构建成功
-   - 运行测试: `pnpm test`
-   - 在演示应用中测试
+    - 确保所有包构建成功
+    - 运行测试: `pnpm test`
+    - 在演示应用中测试
 
 4. **提交更改**
 
-   ```bash
-   git commit -m "Add: your feature description"
-   ```
+    ```bash
+    git commit -m "Add: your feature description"
+    ```
 
 5. **推送并创建 Pull Request**
 
