@@ -3,16 +3,10 @@
     "packageManager": "pnpm",
     "demos": [
         {
-            "name": "demo-react",
-            "value": "react",
-            "description": "React Demo",
-            "package": "@kongzijs/demo-react"
-        },
-        {
             "name": "site",
             "value": "site",
             "description": "Site",
-            "package": "@kongzijs/flf-builder-app"
+            "package": "@kongzijs/demo-flf-builder"
         }
     ]
 }
