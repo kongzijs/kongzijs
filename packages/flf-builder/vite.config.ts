@@ -24,6 +24,7 @@ export default defineConfig({
             external: [
                 "react",
                 "react-dom",
+                "react/jsx-runtime",
                 "@xyflow/react",
                 "@kongzijs/flf-core",
                 "@quizerjs/core",

@@ -99,7 +99,8 @@ Desktop.ini
 
 # Turborepo
 .turbo
-**/.turbo/
+.turbo/
+**/.turbo
 
 # Security logs
 logs/

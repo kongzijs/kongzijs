@@ -22,18 +22,18 @@
         "dev": "vite"
     },
     "dependencies": {
-        "@kongzijs/flf-core": "workspace:*",
         "@borgtj/react": "^0.1.0",
+        "@kongzijs/flf-core": "workspace:*",
         "@xyflow/react": "^12.10.0",
         "lucide-react": "^0.487.0",
         "sonner": "^2.0.3"
     },
     "devDependencies": {
-        "@vitejs/plugin-react-swc": "^3.10.2",
         "@types/react": "^19.2.7",
         "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react-swc": "^3.10.2",
         "typescript": "^5.0.0",
-        "vite": "^6.4.1",
+        "vite": "^7.3.1",
         "vite-plugin-dts": "^4.5.3"
     },
     "peerDependencies": {

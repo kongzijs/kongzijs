@@ -3,10 +3,16 @@
     "packageManager": "pnpm",
     "demos": [
         {
+            "name": "builder",
+            "value": "builder",
+            "description": "Builder",
+            "package": "@kongzijs/demo-flf-builder"
+        },
+        {
             "name": "site",
             "value": "site",
             "description": "Site",
-            "package": "@kongzijs/demo-flf-builder"
+            "package": "@kongzijs/site"
         }
     ]
 }

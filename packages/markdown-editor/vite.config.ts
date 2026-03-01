@@ -27,6 +27,7 @@ export default defineConfig({
             external: [
                 "react",
                 "react-dom",
+                "react/jsx-runtime",
                 "@tiptap/react",
                 "@tiptap/pm",
                 "@tiptap/starter-kit",
