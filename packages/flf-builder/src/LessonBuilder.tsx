@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useMemo, useRef } from "react";
+import { useState, useCallback, useMemo, useRef } from "react";
 import { Save, Settings2, BookOpen, Zap } from "lucide-react";
 import { FLFManifest, FLFTransformer, FLFSettings } from "@kongzijs/flf-core";
 import { toast } from "sonner";
@@ -18,33 +18,25 @@ import { useFLFTranslation } from "@kongzijs/flf-i18n";
 import "./styles/index.css";
 
 /** 从 API/Supabase 等错误中提取可读的 message，避免展示整段序列化对象。 */
-function getReadableSaveErrorMessage(
-    error: unknown,
-    fallback: string,
-): string {
+function getReadableSaveErrorMessage(error: unknown, fallback: string): string {
     if (error == null) return fallback;
     const obj =
         typeof error === "object" && "message" in error
             ? (error as { message?: unknown })
             : null;
     const rawMessage =
-        obj?.message ??
-        (error instanceof Error ? error.message : null);
+        obj?.message ?? (error instanceof Error ? error.message : null);
     if (typeof rawMessage === "string") {
         const trimmed = rawMessage.trim();
         if (!trimmed) return fallback;
-        if (trimmed.length <= 120 && !/^\s*\{/.test(trimmed))
-            return trimmed;
+        if (trimmed.length <= 120 && !/^\s*\{/.test(trimmed)) return trimmed;
         const jsonMatch = trimmed.match(/\{[\s\S]*\}/);
         if (jsonMatch) {
             try {
                 const parsed = JSON.parse(jsonMatch[0]) as {
                     message?: string;
                 };
-                if (
-                    typeof parsed.message === "string" &&
-                    parsed.message.trim()
-                )
+                if (typeof parsed.message === "string" && parsed.message.trim())
                     return parsed.message.trim();
             } catch {
                 /* try regex for non-JSON serialization (e.g. Error: {code: ..., message: "..."}) */
@@ -341,8 +333,7 @@ export function LessonBuilder({
             if (result.success) {
                 toast.success(t.editor.saveSuccess);
             } else {
-                const message =
-                    result.error?.trim() || t.editor.saveError;
+                const message = result.error?.trim() || t.editor.saveError;
                 toast.error(message);
             }
         } catch (error: unknown) {
@@ -350,7 +341,10 @@ export function LessonBuilder({
                 error,
                 t.editor.saveError,
             );
-            console.error("[LessonBuilder] Save failed (user message):", message);
+            console.error(
+                "[LessonBuilder] Save failed (user message):",
+                message,
+            );
             console.error("[LessonBuilder] Full error detail:", error);
             if (error instanceof Error && error.stack)
                 console.error("[LessonBuilder] Stack:", error.stack);

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { FileText } from "lucide-react";
 import { Node } from "@xyflow/react";
 import { QuizEditor, type QuizEditorRef } from "@quizerjs/react";

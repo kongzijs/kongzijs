@@ -1,4 +1,3 @@
-import React from "react";
 import { Slider, CardToggle } from "@borgtj/react";
 import { Settings2, Target } from "lucide-react";
 import { Node } from "@xyflow/react";

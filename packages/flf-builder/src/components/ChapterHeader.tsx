@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@borgtj/react";
 import { Save, BookOpen, Zap } from "lucide-react";
 import { Node } from "@xyflow/react";
