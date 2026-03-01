@@ -10,7 +10,6 @@ import {
     useEdgesState,
     addEdge,
     Connection,
-    Panel,
     ReactFlowProvider,
     Position,
     ConnectionLineType,
@@ -28,9 +27,7 @@ import {
     BookOpen,
     Zap,
     Flag,
-    X,
     Edit3,
-    FileText,
 } from "lucide-react";
 import { FLFManifest, FLFTransformer } from "@kongzijs/flf-core";
 import { toast } from "sonner";
@@ -136,10 +133,10 @@ function LessonBuilderInner({
 
     // Lesson metadata state
     const [lessonTitle, setLessonTitle] = useState<string>(
-        initialManifest?.lesson_title || "",
+        initialManifest?.settings?.title || "",
     );
     const [lessonDescription, setLessonDescription] = useState<string>(
-        initialManifest?.lesson_description || "",
+        initialManifest?.settings?.description || "",
     );
 
     // RFC 0018 Section 6: 连线逻辑（支持 Success/Fail 分支）
@@ -331,12 +328,14 @@ function LessonBuilderInner({
         try {
             const manifest = FLFTransformer.fromReactFlow(
                 lessonId.toString(),
-                initialManifest?.settings || { total_credits: 50 },
+                {
+                    ...(initialManifest?.settings || { total_credits: 50 }),
+                    title: lessonTitle || undefined,
+                    description: lessonDescription || undefined,
+                },
                 nodes,
                 edges,
                 initialManifest?.assets_manifest || [],
-                lessonTitle || undefined,
-                lessonDescription || undefined,
             );
 
             const result = await onSave(lessonId, manifest);
