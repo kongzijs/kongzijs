@@ -1,4 +1,5 @@
 import { BuilderDemo } from "./BuilderDemo";
+import { FLFGuide } from "./FLFGuide";
 
 function App() {
     return (
@@ -458,6 +459,8 @@ pnpm build`}</code>
                         </div>
                     </div>
                 </section>
+
+                <FLFGuide />
             </main>
 
             <footer className="footer">
